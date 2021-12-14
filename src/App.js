@@ -1,11 +1,19 @@
-
+import Home from './screens/Home';
+import Oneday from './screens/Oneday';
+import Taxi from './screens/Taxi';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-     Happy Hacking
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/one-day-trip" element={<Oneday />} />
+        <Route path="/taxi-trip" element={<Taxi />} />
+      </Routes>
+    </Router>
   );
 }
 
