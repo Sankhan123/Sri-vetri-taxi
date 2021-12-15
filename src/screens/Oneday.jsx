@@ -23,6 +23,16 @@ function Oneday() {
   }
   function submitHandler(e) {
     e.preventDefault();
+    let data = {
+      cus_name: custName,
+      mobile: custNo,
+      distance: kms,
+      total: totalPrice
+    }
+    console.log(JSON.stringify(data));
+    setCustName("")
+    setCustNo("")
+    setKms(0)
   }
   return (
     <main className="d-flex justify-content-center align-items-center bg-light vh-100">
