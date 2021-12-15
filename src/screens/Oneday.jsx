@@ -6,9 +6,16 @@ import CalCard from "../components/CalCard";
 
 function Oneday() {
   const [kms, setKms] = useState(12);
+  const [custName, setCustName] = useState("")
+  const [custNo, setCustNo] = useState("")
   const initPayment = 1800;
   const pricePerKm = 7;
   const totalPrice = initPayment + pricePerKm * kms;
+  
+  function kmsHandler(e) {
+    setKms(e.target.value);
+  }
+
   return (
     <main className="d-flex justify-content-center align-items-center bg-warning vh-100">
       <div className="card py-4 px-5">
@@ -37,6 +44,8 @@ function Oneday() {
             type={"number"}
             placeholder={"Kms Travelled"}
             label={"Kms Travelled :"}
+            value={kms}
+            handler={kmsHandler}
           />
           <Button>Submit</Button>
         </form>
