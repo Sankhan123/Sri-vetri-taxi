@@ -3,16 +3,21 @@ import logo from "../images/logo.png"
 import { Link } from 'react-router-dom'
 function Profile() {
     return (
-        <div className='d-flex flex-row align-center justify-content-center'>
-            <div className="row col-sm-12 col-md-8 col-lg-8">
-            <img src={logo} alt="vetri-taxi-logo"/>
+
+
+        <div class="col-sm-9 my-auto col-md-7 mt-5 col-lg-5 mx-auto">
+            <div class="card border-0 shadow pt-4 mt-5 rounded-3 ">
+                <div class=" p-4 p-sm-5">
+                    <img className="img-fluid" src={logo} alt="vetri-taxi-logo" />
+                    <div class="d-grid mt-5">
+                        <Link to="/one-day-trip" className='border border-2 border-warning mt-5 fw-bold  text-dark  btn btn-outline-warning'>One Day Trip</Link>
+                        <Link to="/taxi-trip" className='mt-3 text-light   fw-bold btn btn-warning '>Normal Taxi</Link>
+                    </div>
+                </div>
             </div>
-            <div className="row col-sm-12 col-md-8 col-lg-8">
-            <Link to="/one-day-trip" className='btn btn-primary'>One Day Trip</Link>
-            <Link to="/taxi-trip" className='btn btn-primary'>Normal Taxi</Link>
-            </div>
-           
         </div>
+
+
     )
 }
 
