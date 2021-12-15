@@ -1,4 +1,4 @@
-const Form = ({ id, type, placeholder, value, label,handler }) => {
+const Form = ({ id, type, placeholder, value, label,handler,min }) => {
   return (
     <>
       <label className="mt-2 mb-1" htmlFor={id}>
@@ -12,6 +12,7 @@ const Form = ({ id, type, placeholder, value, label,handler }) => {
         placeholder={placeholder}
         value={value}
         onChange={handler}
+        min={min}
       />
     </>
   );

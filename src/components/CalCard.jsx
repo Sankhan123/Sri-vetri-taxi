@@ -1,6 +1,6 @@
 const CalCard = ({ initPayment, pricePerKm,totalPrice }) => {
   return (
-    <section className="card p-2 text-dark border border-warning shadow-sm">
+    <section className="card px-5 py-3 mx-3 text-dark border border-warning shadow-sm">
       <p className="text-center fw-bold fs-4">Tariff Calculation</p>
       <div className="mx-1">
         <div className="d-flex justify-content-between">
