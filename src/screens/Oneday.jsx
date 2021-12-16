@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import Form from "../components/Form";
 import Button from "../components/Button";
 import CalCard from "../components/CalCard";
 
 function Oneday() {
-  const [kms, setKms] = useState(12);
-  const [custName, setCustName] = useState("")
-  const [custNo, setCustNo] = useState("")
+  const [kms, setKms] = useState(0);
+  const [custName, setCustName] = useState("");
+  const [custNo, setCustNo] = useState("");
   const initPayment = 1800;
   const pricePerKm = 7;
   const totalPrice = initPayment + pricePerKm * kms;
@@ -29,6 +30,16 @@ function Oneday() {
       distance: kms,
       total: totalPrice
     }
+    async function addbill(){
+      const response = await axios.post("http://127.0.0.1:8000/api/add-day-trip",data);
+      if(response){
+        alert(response.data.message);
+      }else{
+        alert("Something went wrong..!");
+      }
+    }
+    addbill();
+
     console.log(JSON.stringify(data));
     setCustName("")
     setCustNo("")
@@ -65,8 +76,8 @@ function Oneday() {
           <Form
             id={"kms_covered"}
             type={"number"}
-            placeholder={"Kms Travelled"}
-            label={"Kms Travelled :"}
+            placeholder={"Distance Travelled"}
+            label={"Distance Travelled :"}
             value={kms}
             handler={kmsHandler}
             min={0}

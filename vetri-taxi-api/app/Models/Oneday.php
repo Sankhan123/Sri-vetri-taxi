@@ -10,13 +10,11 @@ class Oneday extends Model
     use HasFactory;
     protected $table = 'onedaytrip_details';
     protected $fillable = [
-        
-       'date',
         'car_id',
-         'customer_name',
+         'cus_name',
           'mobile',
-           'initial_payment',
-            'kms_travelled',
+           'fixed_payment',
+            'distance',
              'total',
               
    ];
