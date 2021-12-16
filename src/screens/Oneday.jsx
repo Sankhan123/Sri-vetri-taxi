@@ -46,7 +46,7 @@ function Oneday() {
     setKms(0)
   }
   return (
-    <main className="d-flex justify-content-center align-items-center bg-light vh-100">
+    <main className="d-flex justify-content-center align-items-center  vh-100">
       <div className="card shadow-sm py-4 px-5">
         <CalCard initPayment={initPayment} pricePerKm={pricePerKm} totalPrice={totalPrice}/>
         <form onSubmit={submitHandler} className="pt-3">
