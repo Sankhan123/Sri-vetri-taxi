@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Localtrip;
 use App\Models\Normaltaxi;
 use App\Models\Oneday;
 use Illuminate\Http\Request;
@@ -23,6 +24,27 @@ class PaymentController extends Controller
             'message' => 'One day trip details sended',
         ]);
     }
+
+    public function add_local_trip(Request $request){
+        
+        $daytrip = new Localtrip();
+        $daytrip->cus_name = $request->input('cus_name');
+        $daytrip->mobile = $request->input('mobile');
+        $daytrip->triphr = $request->input('triphr');
+        $daytrip->tripkms = $request->input('tripkms');
+        $daytrip->payment = $request->input('payment');
+        $daytrip->xtrakm = $request->input('xtrakm');
+        $daytrip->xtracharge = $request->input('xtracharge');
+        $daytrip->total = $request->input('total');
+        
+        $daytrip->save();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Local trip details sended',
+        ]);
+    }
+
     public function add_taxi_trip(Request $request){
         
         $taxitrip = new Normaltaxi();

@@ -107,7 +107,8 @@ function Taxi() {
                             <div className=" p-3   mt-4 result-inner col-md-5 col-lg-5 col-sm-12">
 
                                 <div className="row">
-                                    <div className="m-auto col-12">                                <h3 className="mt-3 " > Tariff Calculation</h3>
+                                    <div className="m-auto col-12">
+                                        <h3 className="mt-3 " > Tariff Calculation</h3>
                                     </div>
                                 </div>
 
@@ -142,7 +143,7 @@ function Taxi() {
                                         </div>
 
                                             <div className="col-5">
-                                                : {hr <=2 ? w_charge= hr*60 : hr <=4 && hr>2 ? w_charge= hr*80 : w_charge= hr*100 } ₹
+                                                : {hr <=2 ? w_charge= hr*60 : hr <=4 && hr>2 ? w_charge= hr*80 : w_charge= hr*120 } ₹
                                             </div>
 
 
