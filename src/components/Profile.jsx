@@ -10,8 +10,10 @@ function Profile() {
                 <div class=" p-4 p-sm-5">
                     <Logo/>
                     <div class="d-grid mt-5">
-                        <Link to="/one-day-trip" className='border border-2 border-warning mt-5 fw-bold  text-dark  btn btn-outline-warning'>One Day Trip</Link>
-                        <Link to="/taxi-trip" className='mt-3 text-light   fw-bold btn btn-warning '>Normal Taxi</Link>
+                        <Link to="/one-day-trip" className='border border-2 border-warning mt-4 fw-bold  text-dark  btn btn-outline-warning'>One Day Trip</Link>
+                        <Link to="/taxi-trip" className='border border-2 border-warning mt-3 fw-bold  text-dark  btn btn-outline-warning'>Normal Taxi</Link>
+                        <Link to="/local-trip" className='border border-2 border-warning mt-3 fw-bold  text-dark  btn btn-outline-warning'>Local Trip</Link>
+                        <Link to="/hills-trip" className='border border-2 border-warning mt-3 fw-bold  text-dark  btn btn-outline-warning'>Hills Trip</Link>
                     </div>
                 </div>
             </div>

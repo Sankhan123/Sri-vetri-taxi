@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hillstrip;
 use App\Models\Localtrip;
 use App\Models\Normaltaxi;
 use App\Models\Oneday;
@@ -42,6 +43,27 @@ class PaymentController extends Controller
         return response()->json([
             'status' => 200,
             'message' => 'Local trip details sended',
+        ]);
+    }
+
+    public function add_hills_trip(Request $request){
+        
+        $daytrip = new Hillstrip();
+        $daytrip->cus_name = $request->input('cus_name');
+        $daytrip->mobile = $request->input('mobile');
+        $daytrip->trip_from = $request->input('trip_from');
+        $daytrip->trip_to = $request->input('trip_to');
+        $daytrip->members = $request->input('members');
+        $daytrip->payment = $request->input('payment');
+        $daytrip->trip_days = $request->input('trip_days');
+        $daytrip->driver_batta = $request->input('driver_batta');
+        $daytrip->total = $request->input('total');
+        
+        $daytrip->save();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Hills trip details sended',
         ]);
     }
 

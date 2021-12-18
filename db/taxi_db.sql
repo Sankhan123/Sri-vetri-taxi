@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2021 at 12:03 PM
+-- Generation Time: Dec 18, 2021 at 06:44 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -40,6 +40,104 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hillstrip_details`
+--
+
+CREATE TABLE `hillstrip_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `car_id` int(11) NOT NULL DEFAULT 1,
+  `cus_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `trip_from` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `trip_to` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment` int(11) DEFAULT NULL,
+  `members` int(11) DEFAULT NULL,
+  `trip_days` int(11) DEFAULT NULL,
+  `driver_batta` int(11) DEFAULT NULL,
+  `total` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `hillstrip_details`
+--
+
+INSERT INTO `hillstrip_details` (`id`, `car_id`, `cus_name`, `mobile`, `trip_from`, `trip_to`, `payment`, `members`, `trip_days`, `driver_batta`, `total`, `created_at`, `updated_at`) VALUES
+(1, 1, 'san', '1213', NULL, 'Yercaud', 3000, 4, 1, 300, '3300', '2021-12-18 03:21:41', '2021-12-18 03:21:41'),
+(2, 1, 'aaa', '2434', 'Tiruchengode', 'Kolli Hills', 3500, 4, 2, 600, '4100', '2021-12-18 03:24:49', '2021-12-18 03:24:49'),
+(3, 1, 'sann', '1234', 'Tiruchengode', NULL, NULL, 4, 0, 0, NULL, '2021-12-18 03:28:24', '2021-12-18 03:28:24'),
+(4, 1, '23', '23', 'Tiruchengode', 'Yercaud', 3000, 4, 0, 0, '3000', '2021-12-18 03:29:57', '2021-12-18 03:29:57'),
+(5, 1, 'asa', '433', 'Tiruchengode', 'Ooty', 6000, 4, NULL, 0, '6000', '2021-12-18 03:33:46', '2021-12-18 03:33:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `localtrip_details`
+--
+
+CREATE TABLE `localtrip_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `car_id` int(11) NOT NULL DEFAULT 1,
+  `cus_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `triphr` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tripkms` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment` int(11) NOT NULL DEFAULT 0,
+  `xtrakm` int(11) NOT NULL DEFAULT 0,
+  `xtracharge` int(11) NOT NULL DEFAULT 0,
+  `total` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `localtrip_details`
+--
+
+INSERT INTO `localtrip_details` (`id`, `car_id`, `cus_name`, `mobile`, `triphr`, `tripkms`, `payment`, `xtrakm`, `xtracharge`, `total`, `created_at`, `updated_at`) VALUES
+(1, 1, 'san', '23678', '2', '20', 500, 1, 12, '512', '2021-12-17 05:14:21', '2021-12-17 05:14:21'),
+(2, 1, 'san', '456876', '2', '20', 500, 6, 72, '572', '2021-12-17 05:44:23', '2021-12-17 05:44:23'),
+(3, 1, 'ds', '232', '1', '10', 250, 0, 0, '250', '2021-12-17 11:42:42', '2021-12-17 11:42:42'),
+(4, 1, 'sss1', '23456', '1', '10', 250, 0, 0, '250', '2021-12-17 22:21:41', '2021-12-17 22:21:41'),
+(5, 1, 'qqq', '2222', '2', '20', 500, 0, 0, '500', '2021-12-17 22:38:54', '2021-12-17 22:38:54'),
+(6, 1, '1', '1', '1', '10', 250, 0, 0, '250', '2021-12-17 22:40:26', '2021-12-17 22:40:26'),
+(7, 1, '2', '2', '2', '20', 500, 0, 0, '500', '2021-12-17 22:40:34', '2021-12-17 22:40:34'),
+(8, 1, '11', '11', '1', '10', 250, 1, 12, '262', '2021-12-17 22:40:57', '2021-12-17 22:40:57'),
+(9, 1, '22', '22', '2', '20', 500, 2, 24, '524', '2021-12-17 22:41:11', '2021-12-17 22:41:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `car_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `driver` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `car_no`, `password`, `driver`, `created_at`, `updated_at`) VALUES
+(1, 'TN34AB7864', 'svt7864', NULL, NULL, NULL),
+(2, 'TN34AC6366', 'svt6366', NULL, NULL, NULL),
+(3, 'TN34AC8596', 'svt8596', NULL, NULL, NULL),
+(4, 'TN50AW1600', 'svt1600', NULL, NULL, NULL),
+(5, 'TN34AE0184', 'svt0184', NULL, NULL, NULL),
+(6, 'TN43K0649', 'svt0649', NULL, NULL, NULL),
+(7, 'TN36AF5438', 'svt5438', NULL, NULL, NULL),
+(8, 'TN88D9990', 'svt9990', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -59,7 +157,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2021_12_15_054756_create_onedaytrip_details_table', 1),
-(6, '2021_12_15_063450_create_normaltaxi_details_table', 1);
+(6, '2021_12_15_063450_create_normaltaxi_details_table', 1),
+(7, '2021_12_17_100316_create_localtrip_details_table', 2),
+(8, '2021_12_18_084721_create_hillstrip_details_table', 3),
+(9, '2021_12_18_095446_create_login_table', 4);
 
 -- --------------------------------------------------------
 
@@ -179,6 +280,24 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `hillstrip_details`
+--
+ALTER TABLE `hillstrip_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `localtrip_details`
+--
+ALTER TABLE `localtrip_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -228,10 +347,28 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `hillstrip_details`
+--
+ALTER TABLE `hillstrip_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `localtrip_details`
+--
+ALTER TABLE `localtrip_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `normaltaxi_details`
