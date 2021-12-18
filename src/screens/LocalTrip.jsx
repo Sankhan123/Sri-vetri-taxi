@@ -8,12 +8,13 @@ function LocalTrip() {
     const [name, setName] = useState("");
     const [payment, setPayment] = useState("");
     const [phone, setPhone] = useState("");
-    const [xtrakm, setXtrakm] = useState("");
+    const [xtrakm, setXtrakm] = useState(0);
     let xtracharge = 0;
     xtracharge = 12 * xtrakm;
     let result = 0;
     let km = 0;
     let pay;
+
     function setkm(triphr){
         triphr==='1'? km=10 :triphr==='2'? km=20 : km=0
         setTripkms(km)
@@ -21,7 +22,6 @@ function LocalTrip() {
             km===10 ? pay=250 : km===20 ? pay=500 : pay=0
             setPayment(pay)        
         }
-       
     }
 
     xtracharge>0 ? result = payment + xtracharge : result = payment;
@@ -53,7 +53,7 @@ function LocalTrip() {
             setName("")
             setPayment("")
             setPhone("")
-            setXtrakm("")
+            setXtrakm(0)
             setTripkms("")
     }
 
@@ -92,7 +92,7 @@ function LocalTrip() {
                                     </div>
                                     <div className=" mt-3 form-group">
                                             <label htmlFor="kms">Extra kms : </label>
-                                            <input onChange={(e) => setXtrakm(e.target.value)} name="xtrakm" value={xtrakm} type="tel" className="form-control mt-1" placeholder="Distance Travelled" />
+                                            <input onChange={(e) => setXtrakm(e.target.value)} name="xtrakm" value={xtrakm} type="text" className="form-control mt-1" placeholder="Distance Travelled" />
                                         </div>
 
                                     
