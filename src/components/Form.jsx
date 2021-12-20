@@ -13,6 +13,7 @@ const Form = ({ id, type, placeholder, value, label,handler,min,disable }) => {
         value={value}
         onChange={handler}
         min={min}
+        disabled={disable}
       />
     </>
   );
