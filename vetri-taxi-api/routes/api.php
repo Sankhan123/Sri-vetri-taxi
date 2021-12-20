@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccessController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/check-login/{val1}/{val2}',[LoginController::class,'check_login']);
+Route::get('/cars-list',[AccessController::class,'get_cars']);
 Route::post('/add-day-trip',[PaymentController::class,'add_day_trip']);
 Route::post('/local-trip',[PaymentController::class,'add_local_trip']);
 Route::post('/hills-trip',[PaymentController::class,'add_hills_trip']);
