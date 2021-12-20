@@ -51,6 +51,7 @@ function Oneday() {
             placeholder={"Initial Payment"}
             label={"Initial Payment :"}
             value={initPayment}
+            disable={true}
           />
           <Form
             id={"kms_covered"}
