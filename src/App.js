@@ -8,7 +8,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LocalTrip from './screens/LocalTrip';
 import Hillstrip from './screens/Hillstrip';
 import Dashboard from './screens/Dashboard';
-
+import Customer from './screens/Customer';
+import Car from './screens/Car';
 function App() {
   return (
     <Router>
@@ -21,7 +22,8 @@ function App() {
         <Route path="/hills-trip" element={<Hillstrip />} />
         <Route path="/taxi-trip" element={<Taxi />} />
         <Route path="/dashboard" element={<Dashboard />} >
-            
+            <Route path="customer" element={<Customer />}/>
+            <Route path="car" element={<Car />}/>
         </Route>
       </Routes>
      
