@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link,Outlet,useLocation } from "react-router-dom";
 
 import logo from "../assets/logo.svg";
 import Home from "../assets/home-solid.svg";
@@ -10,6 +10,8 @@ import Projects from "../assets/starred.svg";
 import PowerOff from "../assets/power-off-solid.svg";
 
 function Dashboard() {
+  const location = useLocation();
+  console.log(location)
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -30,7 +32,7 @@ function Dashboard() {
               onClick={() => setClick(false)}
               exact
               activeClassName="active"
-              to="/"
+              to="/dashboard"
             >
               <img src={Home} alt="Home" />
               <Text clicked={click}>Home</Text>
@@ -38,7 +40,7 @@ function Dashboard() {
             <Item
               onClick={() => setClick(false)}
               activeClassName="active"
-              to="/customer"
+              to="/dashboard/customer"
             >
               <img src={Team} alt="Team" />
               <Text clicked={click}>Team</Text>
@@ -47,7 +49,7 @@ function Dashboard() {
             <Item
               onClick={() => setClick(false)}
               activeClassName="active"
-              to="/car"
+              to="/dashboard/car"
             >
               <img src={Projects} alt="Projects" />
               <Text clicked={click}>Projects</Text>
@@ -72,7 +74,8 @@ function Dashboard() {
         </SidebarContainer>
       </Container>
       <Section>
-        <h1>Main Content Here</h1>
+        {(location.pathname === "/dashboard") && <h1>Main Content Here</h1>}
+        <Outlet />
       </Section>
     </Main>
   );
