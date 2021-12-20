@@ -4,7 +4,7 @@ import Profile from '../components/Profile'
 function Home() {
     return (
         <>
-        <div className="container">
+        <div className="container auth-wrapper">
             <div className="row">
             <Profile/>
             </div>
