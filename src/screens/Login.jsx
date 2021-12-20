@@ -18,7 +18,7 @@ function Login() {
                    
         console.log(JSON.stringify(data))
         async function logincheck(){
-            const response = await axios.get(`http://127.0.0.1:8000/api/check-login/${name}/${password}`);
+            const response = await axios.post(`http://127.0.0.1:8000/api/check-login`,data);
             if (response.data.status === 200 ) {
                 alert(response.data.message);
                 Navigate("/");
@@ -41,7 +41,7 @@ function Login() {
         <div className="auth-wrapper">
         <div className="auth-inner">
         <form onSubmit={subHandler}>
-        <h3>Sign In</h3>
+        <h4>LOGIN</h4>
             <Logo/>
         <div className=" mt-3 form-group">
             
@@ -54,7 +54,7 @@ function Login() {
         </div>
         <div className="text-center">
 
-        <button type="submit" className="mt-3  btn  btn-warning btn-block">Sign Up</button>
+        <button type="submit" className="mt-3  btn  btn-warning btn-block">Login</button>
         </div>
     </form>
 </div>

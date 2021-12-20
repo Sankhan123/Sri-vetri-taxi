@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/check-login/{val1}/{val2}',[LoginController::class,'check_login']);
+Route::post('/check-login',[LoginController::class,'check_login']);
 Route::get('/cars-list',[AccessController::class,'get_cars']);
 Route::post('/add-day-trip',[PaymentController::class,'add_day_trip']);
 Route::post('/local-trip',[PaymentController::class,'add_local_trip']);

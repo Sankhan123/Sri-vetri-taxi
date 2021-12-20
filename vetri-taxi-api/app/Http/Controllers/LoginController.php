@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     
-    public function check_login($name,$password){
+    public function check_login(Request $request){
 
-        $login_request = Login::where('car_no','=',$name)->where('password','=',$password)->get()->first();
+        $login_request = Login::where('car_no','=',$request->name)->where('password','=',$request->password)->get()->first();
 
         if ($login_request) { 
             return response()->json([
