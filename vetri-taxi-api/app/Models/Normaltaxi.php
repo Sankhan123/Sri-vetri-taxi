@@ -11,13 +11,14 @@ class Normaltaxi extends Model
     protected $table = 'normaltaxi_details';
     protected $fillable = [
         
-       'date',
         'car_id',
          'from',
          'to',
-         'customer_name',
+         'cus_name',
           'mobile',
-           'kms_travelled',
+           'distance',
+           'w_hour',
+           'w_charge',
             'waiting_hrs',
             'driver_batta',
              'total',

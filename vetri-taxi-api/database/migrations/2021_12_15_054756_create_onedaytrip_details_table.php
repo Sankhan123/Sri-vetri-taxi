@@ -15,8 +15,8 @@ class CreateOnedaytripDetailsTable extends Migration
     {
         Schema::create('onedaytrip_details', function (Blueprint $table) {
             $table->id();
-            $table->integer('car_id');
-            $table->string('customer_name')->nullable();
+            $table->integer('car_id')->default(1);
+            $table->string('cus_name')->nullable();
             $table->string('mobile')->nullable();
             $table->bigInteger('fixed_payment')->default(1800);
             $table->integer('distance')->nullable();

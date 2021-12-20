@@ -5,16 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Oneday extends Model
+class Localtrip extends Model
 {
     use HasFactory;
-    protected $table = 'onedaytrip_details';
+    protected $table = 'Localtrip_details';
     protected $fillable = [
+        
         'car_id',
+         'triphr',
+         'tripkms',
          'cus_name',
           'mobile',
-           'fixed_payment',
-            'distance',
+           'payment',
+           'xtrakm',
+           'xtracharge',
              'total',
               
    ];

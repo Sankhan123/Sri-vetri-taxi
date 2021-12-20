@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import Form from "../components/Form";
 import Button from "../components/Button";
 import CalCard from "../components/CalCard";
 
 function Oneday() {
-  const [kms, setKms] = useState(12);
-  const [custName, setCustName] = useState("")
-  const [custNo, setCustNo] = useState("")
+  const [kms, setKms] = useState(0);
+  const [custName, setCustName] = useState("");
+  const [custNo, setCustNo] = useState("");
   const initPayment = 1800;
   const pricePerKm = 7;
   const totalPrice = initPayment + pricePerKm * kms;
@@ -23,9 +24,29 @@ function Oneday() {
   }
   function submitHandler(e) {
     e.preventDefault();
+    let data = {
+      cus_name: custName,
+      mobile: custNo,
+      distance: kms,
+      total: totalPrice
+    }
+    async function addbill(){
+      const response = await axios.post("http://127.0.0.1:8000/api/add-day-trip",data);
+      if(response){
+        alert(response.data.message);
+      }else{
+        alert("Something went wrong..!");
+      }
+    }
+    addbill();
+
+    console.log(JSON.stringify(data));
+    setCustName("")
+    setCustNo("")
+    setKms(0)
   }
   return (
-    <main className="d-flex justify-content-center align-items-center bg-light vh-100">
+    <main className="d-flex justify-content-center align-items-center  vh-100">
       <div className="card shadow-sm py-4 px-5">
         <CalCard initPayment={initPayment} pricePerKm={pricePerKm} totalPrice={totalPrice}/>
         <form onSubmit={submitHandler} className="pt-3">
@@ -56,8 +77,8 @@ function Oneday() {
           <Form
             id={"kms_covered"}
             type={"number"}
-            placeholder={"Kms Travelled"}
-            label={"Kms Travelled :"}
+            placeholder={"Distance Travelled"}
+            label={"Distance Travelled :"}
             value={kms}
             handler={kmsHandler}
             min={0}
