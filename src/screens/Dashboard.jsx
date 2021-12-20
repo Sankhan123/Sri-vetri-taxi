@@ -1,6 +1,6 @@
-import React ,{useState}from 'react'
+import React, { useState } from "react";
 import styled from "styled-components";
-import{Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import logo from "../assets/logo.svg";
 import Home from "../assets/home-solid.svg";
@@ -9,80 +9,87 @@ import Projects from "../assets/starred.svg";
 
 import PowerOff from "../assets/power-off-solid.svg";
 
-
-
-
 function Dashboard() {
-    const [click, setClick] = useState(false);
+  const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
-    return (
-        <Container>
-      <Button clicked={click} onClick={() => handleClick()}>
-        Click
-      </Button>
-      <SidebarContainer>
-        <Logo>
-          <img src={logo} alt="logo" />
-        </Logo>
-        <SlickBar clicked={click}>
-          <Item
-            onClick={() => setClick(false)}
-            exact
-            activeClassName="active"
-            to="/"
-          >
-            <img src={Home} alt="Home" />
-            <Text clicked={click}>Home</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/customer"
-          >
-            <img src={Team} alt="Team" />
-            <Text clicked={click}>Team</Text>
-          </Item>
-          
-        
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/car"
-          >
-            <img src={Projects} alt="Projects" />
-            <Text clicked={click}>Projects</Text>
-          </Item>
-        </SlickBar>
+  return (
+    <Main>
+      <Container>
+        <Button clicked={click} onClick={() => handleClick()}>
+          Click
+        </Button>
+        <SidebarContainer>
+          <Logo>
+            <img src={logo} alt="logo" />
+          </Logo>
+          <SlickBar clicked={click}>
+            <Item
+              onClick={() => setClick(false)}
+              exact
+              activeClassName="active"
+              to="/"
+            >
+              <img src={Home} alt="Home" />
+              <Text clicked={click}>Home</Text>
+            </Item>
+            <Item
+              onClick={() => setClick(false)}
+              activeClassName="active"
+              to="/customer"
+            >
+              <img src={Team} alt="Team" />
+              <Text clicked={click}>Team</Text>
+            </Item>
 
-        <Profile clicked={profileClick}>
-          <img
-            onClick={() => handleProfileClick()}
-            src="https://picsum.photos/200"
-            alt="Profile"
-          />
-          <Details clicked={profileClick}>
-            <Name>
-              <p>Admin</p>
-             
-            </Name>
+            <Item
+              onClick={() => setClick(false)}
+              activeClassName="active"
+              to="/car"
+            >
+              <img src={Projects} alt="Projects" />
+              <Text clicked={click}>Projects</Text>
+            </Item>
+          </SlickBar>
 
-            <Logout>
-              <img src={PowerOff} alt="logout" />
-            </Logout>
-          </Details>
-        </Profile>
-      </SidebarContainer>
-    </Container>
-    )
+          <Profile clicked={profileClick}>
+            <img
+              onClick={() => handleProfileClick()}
+              src="https://picsum.photos/200"
+              alt="Profile"
+            />
+            <Details clicked={profileClick}>
+              <Name>
+                <p>Admin</p>
+              </Name>
+              <Logout>
+                <img src={PowerOff} alt="logout" />
+              </Logout>
+            </Details>
+          </Profile>
+        </SidebarContainer>
+      </Container>
+      <Section>
+        <h1>Main Content Here</h1>
+      </Section>
+    </Main>
+  );
 }
 
-export default Dashboard
+export default Dashboard;
 
+const Main = styled.main`
+  display: flex;
+  min-height: 100vh;
+`
+const Section = styled.section`
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+`
 const Container = styled.div`
-  position: fixed;
   .active {
     border-right: 4px solid var(--white);
     img {
