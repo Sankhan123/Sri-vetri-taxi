@@ -6,7 +6,7 @@ function CarTable() {
     const data = Location.state;
     return (
         <div>
-            this is table id :{data.id}
+            this is table id :{data} 
         </div>
     )
 }
