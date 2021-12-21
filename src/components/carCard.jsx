@@ -1,11 +1,20 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 import car from "../assets/car.jpeg"
 
-function CarCard({data}) {
+import { useNavigate } from "react-router";
+
+function CarCard({data,id}) {
+
+    let Navigate = useNavigate();
+    const navigateToTable = () => {
+      console.log("ehello")
+      Navigate(`${id}`, { state: id });
+    };
+
     return (
+      
         <>
-            <div className="col-md-3">
+            <div className="col-md-3 col-sm-6 z col-lg-3 my-4">
                         <div className="card rounded">
                             <div className="card-image">
 
@@ -16,9 +25,11 @@ function CarCard({data}) {
                                 <div className="ad-title m-auto">
                                     <h5>{data.car_no}</h5>
                                 </div>
-                                <Link className="ad-btn" to="id">View</Link>
+                                <button onClick={navigateToTable} className="btn-warning btn" >
+                                    View
+                                </button>
+                            </div> 
                             </div>
-                        </div>
                     </div>  
         </>
     )
