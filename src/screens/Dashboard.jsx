@@ -30,8 +30,8 @@ function Dashboard() {
           <SlickBar clicked={click}>
             <Item
               onClick={() => setClick(false)}
-              exact
-              activeClassName="active"
+              
+               className="active"
               to="/dashboard"
             >
               <img src={Home} alt="Home" />
@@ -39,7 +39,7 @@ function Dashboard() {
             </Item>
             <Item
               onClick={() => setClick(false)}
-              activeClassName="active"
+               className="active"
               to="/dashboard/customer"
             >
               <img src={Team} alt="Team" />
@@ -48,7 +48,7 @@ function Dashboard() {
 
             <Item
               onClick={() => setClick(false)}
-              activeClassName="active"
+              className="active"
               to="/dashboard/car"
             >
               <img src={Projects} alt="Projects" />
