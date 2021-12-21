@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 
 import CarCard from "../components/carCard";
 
-const Car = () => {
+import { useLocation, Outlet} from "react-router";
 
+const Car = () => {
+    let location = useLocation();
     const [cars, setCars] = useState([]);
 
     useEffect( () => {
@@ -25,21 +27,22 @@ const Car = () => {
 
 
     return (
-        <>
+        <><Outlet></Outlet>
+         {location.pathname === "/dashboard/car" &&(
             <div className="container">
                 <div className="row" id="ads">
                 {
                     cars && cars.length > 0 ? 
                     
                     cars.map((car,i)=>(
-                        <CarCard data={car} id ={i+1} />
+                        <CarCard key={i} data={car} id ={i+1} />
                     )):"Loding ..."
                     
 
                 }
      
                 </div>
-            </div>
+            </div>)}
 
         </>
     )

@@ -10,6 +10,8 @@ import Hillstrip from './screens/Hillstrip';
 import Dashboard from './screens/Dashboard';
 import Customer from './screens/Customer';
 import Car from './screens/Car';
+
+import CarTable from './components/CarTable';
 function App() {
   return (
     <Router>
@@ -23,7 +25,9 @@ function App() {
         <Route path="/taxi-trip" element={<Taxi />} />
         <Route path="/dashboard" element={<Dashboard />} >
             <Route path="customer" element={<Customer />}/>
-            <Route path="car" element={<Car />}/>
+            <Route path="car" element={<Car />}>
+                  <Route path=":id" element={<CarTable/>}/>
+            </Route>
         </Route>
       </Routes>
      
