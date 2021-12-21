@@ -14,7 +14,7 @@ function CarCard({data,id}) {
     return (
       
         <>
-            <div className="col-md-3 col-sm-6 z col-lg-3 my-4">
+            <div className="col-md-3 col-sm-6  col-lg-3 my-4">
                         <div className="card rounded">
                             <div className="card-image">
 
@@ -25,7 +25,7 @@ function CarCard({data,id}) {
                                 <div className="ad-title m-auto">
                                     <h5>{data.car_no}</h5>
                                 </div>
-                                <button onClick={navigateToTable} className="btn-warning btn" >
+                                <button  onClick={navigateToTable} className="btn-warning btn" >
                                     View
                                 </button>
                             </div> 
