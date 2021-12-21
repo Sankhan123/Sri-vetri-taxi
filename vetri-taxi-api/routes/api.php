@@ -6,18 +6,9 @@ use App\Http\Controllers\PaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 Route::post('/check-login',[LoginController::class,'check_login']);
 Route::get('/cars-list',[AccessController::class,'get_cars']);
+Route::get('/cars-data/{id}',[AccessController::class,'get_trips']);
 Route::post('/add-day-trip',[PaymentController::class,'add_day_trip']);
 Route::post('/local-trip',[PaymentController::class,'add_local_trip']);
 Route::post('/hills-trip',[PaymentController::class,'add_hills_trip']);
