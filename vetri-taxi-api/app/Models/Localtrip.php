@@ -9,6 +9,9 @@ class Localtrip extends Model
 {
     use HasFactory;
     protected $table = 'Localtrip_details';
+    protected $casts = [
+      'created_at' => 'datetime:d-m-Y',
+  ];
     protected $fillable = [
         
         'car_id',

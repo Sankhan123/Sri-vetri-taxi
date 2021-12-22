@@ -9,6 +9,9 @@ class Normaltaxi extends Model
 {
     use HasFactory;
     protected $table = 'normaltaxi_details';
+    protected $casts = [
+        'created_at' => 'datetime:d-m-Y',
+    ];
     protected $fillable = [
         
         'car_id',

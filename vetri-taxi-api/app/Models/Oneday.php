@@ -9,6 +9,9 @@ class Oneday extends Model
 {
     use HasFactory;
     protected $table = 'onedaytrip_details';
+    protected $casts = [
+        'created_at' => 'datetime:d-m-Y',
+    ];
     protected $fillable = [
         'car_id',
          'cus_name',

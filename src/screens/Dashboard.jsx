@@ -141,6 +141,7 @@ const SidebarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
+  z-index: 1;
 `;
 
 const Logo = styled.div`
