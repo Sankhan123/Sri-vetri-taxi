@@ -73,10 +73,10 @@ function Dashboard() {
           </Profile>
         </SidebarContainer>
       </Container>
-      <Section>
+      <>
         {(location.pathname === "/dashboard") && <h1>Main Content Here</h1>}
         <Outlet />
-      </Section>
+      </>
     </Main>
   );
 }
@@ -86,11 +86,6 @@ export default Dashboard;
 const Main = styled.main`
   display: flex;
   min-height: 100vh;
-`
-const Section = styled.section`
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
 `
 const Container = styled.div`
   .active {
