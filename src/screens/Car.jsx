@@ -15,7 +15,6 @@ const Car = () => {
         {
         const res = await axios.get("http://127.0.0.1:8000/api/cars-list");
         if (res) {
-            console.log(res)
             setCars(res.data.data);
         }
        

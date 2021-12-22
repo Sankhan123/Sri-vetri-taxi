@@ -23,10 +23,10 @@ class AccessController extends Controller
 
     public function get_trips($id){
 
-        $taxi = Normaltaxi::where('car_id', $id)->get();
-        $daytrip = Oneday::where('car_id', $id)->get();
-        $local = Localtrip::where('car_id', $id)->get();
-        $hills = Hillstrip::where('car_id', $id)->get();
+        $taxi = Normaltaxi::where('car_id', $id)->orderBy('id','asc')->get();
+        $daytrip = Oneday::where('car_id', $id)->orderBy('id','asc')->get();
+        $local = Localtrip::where('car_id', $id)->orderBy('id','desc')->get();
+        $hills = Hillstrip::where('car_id', $id)->orderBy('id','desc')->get();
         
         return response()->json([
             'status' => 200,
