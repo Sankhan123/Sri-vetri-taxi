@@ -11,7 +11,7 @@ import PowerOff from "../assets/power-off-solid.svg";
 
 function Dashboard() {
   const location = useLocation();
-  console.log(location)
+ 
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
