@@ -7,7 +7,6 @@ function CarCard({data,id}) {
 
     let Navigate = useNavigate();
     const navigateToTable = () => {
-      console.log("ehello")
       Navigate(`${id}`, { state: id });
     };
 
