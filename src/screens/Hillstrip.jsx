@@ -68,11 +68,11 @@ function Hillstrip() {
                                 <form onSubmit={subHandler}>
                                 <div className=" mt-3 form-group">
                                         <label htmlFor="name">Customer Name : </label>
-                                        <input name="name" onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control mt-1" placeholder="Customer Name" />
+                                        <input required="required" name="name" onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control mt-1" placeholder="Customer Name" />
                                     </div>
                                     <div className=" mt-3 form-group">
                                         <label htmlFor="number">Phone No : </label>
-                                        <input onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" className="form-control mt-1" placeholder="Phone No" />
+                                        <input required="required" onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" className="form-control mt-1" placeholder="Phone No" />
                                     </div>
                                     <div className="row">
                                     <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
@@ -96,11 +96,11 @@ function Hillstrip() {
                                     <div className="row">
                                         <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                         <label htmlFor="from">Days : </label>
-                                        <input value={tripdays} name="tripdays" onChange={(e) => setTripdays(e.target.value)} type="text" className="form-control mt-1" placeholder="Enter days" />
+                                        <input required="required" value={tripdays} name="tripdays" onChange={(e) => setTripdays(e.target.value)} type="text" className="form-control mt-1" placeholder="Enter days" />
                                         </div>
                                         <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                         <label htmlFor="from">Members : </label>
-                                        <input value="4" name="members" type="text" className="form-control mt-1" disabled/>
+                                        <input  required="required" value="4" name="members" type="text" className="form-control mt-1" disabled/>
                                         </div>
                                     </div>
                                     <div className="d-grid mt-4    ">

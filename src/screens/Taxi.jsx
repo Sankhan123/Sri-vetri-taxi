@@ -68,31 +68,31 @@ function Taxi() {
                                 <div className="row">
                                         <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                         <label htmlFor="from">From : </label>
-                                        <input onChange={(e) => setStart(e.target.value)} value={start} name="from" type="text" className="form-control mt-1" placeholder="Start" />
+                                        <input required="required" onChange={(e) => setStart(e.target.value)} value={start} name="from" type="text" className="form-control mt-1" placeholder="Start" />
                                         </div>
                                         <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
                                         <label htmlFor="to">To : </label>
-                                        <input value={end} onChange={(e) => setEnd(e.target.value)} name="to" type="text" className="form-control mt-1" placeholder="End" />
+                                        <input required="required" value={end} onChange={(e) => setEnd(e.target.value)} name="to" type="text" className="form-control mt-1" placeholder="End" />
                                         </div>
                                     </div>
 
                                     <div className=" mt-3 form-group">
                                         <label htmlFor="name">Customer Name : </label>
-                                        <input name="name" onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control mt-1" placeholder="Customer Name" />
+                                        <input required="required" name="name" onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control mt-1" placeholder="Customer Name" />
                                     </div>
                                     <div className=" mt-3 form-group">
                                         <label htmlFor="number">Phone No : </label>
-                                        <input onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" className="form-control mt-1" placeholder="Phone No" />
+                                        <input required="required" onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" className="form-control mt-1" placeholder="Phone No" />
                                     </div>
 
                                     <div className="row">
                                         <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                             <label htmlFor="kms">Distance Travelled : </label>
-                                            <input onChange={(e) => setKm(e.target.value)} name="kms" value={km} type="tel" className="form-control mt-1" placeholder="Distance Travelled" />
+                                            <input required="required" onChange={(e) => setKm(e.target.value)} name="kms" value={km} type="tel" className="form-control mt-1" placeholder="Distance Travelled" />
                                         </div>
                                         <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
                                             <label htmlFor="hrs">Waiting Hours : </label>
-                                            <input value={hr} onChange={(e) => setHr(e.target.value)} name="hrs" type="tel" className="form-control mt-1" placeholder="Waiting Hours" />
+                                            <input required="required" value={hr} onChange={(e) => setHr(e.target.value)} name="hrs" type="tel" className="form-control mt-1" placeholder="Waiting Hours" />
                                         </div>
                                     </div>
 
