@@ -19,6 +19,7 @@ class Normaltaxi extends Model
          'to',
          'cus_name',
           'mobile',
+          'trip_type',
            'distance',
            'w_hour',
            'w_charge',

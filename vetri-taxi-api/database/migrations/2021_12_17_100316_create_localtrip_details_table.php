@@ -19,7 +19,7 @@ class CreateLocaltripDetailsTable extends Migration
             $table->string('cus_name')->nullable();
             $table->string('mobile')->nullable();
             $table->string('triphr')->nullable();
-            $table->string('tripkms')->nullable();
+            $table->string('distance')->nullable();
             $table->integer('payment')->default(0);
             $table->integer('xtrakm')->default(0);
             $table->integer('xtracharge')->default(0);

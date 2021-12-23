@@ -16,8 +16,9 @@ class Localtrip extends Model
         
         'car_id',
          'triphr',
-         'tripkms',
+         'distance',
          'cus_name',
+         'trip_type',
           'mobile',
            'payment',
            'xtrakm',

@@ -16,6 +16,7 @@ class Oneday extends Model
         'car_id',
          'cus_name',
           'mobile',
+          'trip_type',
            'fixed_payment',
             'distance',
              'total',

@@ -25,6 +25,7 @@ class PaymentController extends Controller
         $daytrip = new Oneday();
         $daytrip->cus_name = $request->input('cus_name');
         $daytrip->mobile = $request->input('mobile');
+        $daytrip->trip_type = "Day trip";
         $daytrip->distance = $request->input('distance');
         $daytrip->total = $request->input('total');
         
@@ -49,8 +50,9 @@ class PaymentController extends Controller
         $daytrip = new Localtrip();
         $daytrip->cus_name = $request->input('cus_name');
         $daytrip->mobile = $request->input('mobile');
+        $daytrip->trip_type = "Local trip";
         $daytrip->triphr = $request->input('triphr');
-        $daytrip->tripkms = $request->input('tripkms');
+        $daytrip->distance = $request->input('tripkms');
         $daytrip->payment = $request->input('payment');
         $daytrip->xtrakm = $request->input('xtrakm');
         $daytrip->xtracharge = $request->input('xtracharge');
@@ -78,6 +80,7 @@ class PaymentController extends Controller
         $daytrip = new Hillstrip();
         $daytrip->cus_name = $request->input('cus_name');
         $daytrip->mobile = $request->input('mobile');
+        $daytrip->trip_type = "Hills trip";
         $daytrip->trip_from = $request->input('trip_from');
         $daytrip->trip_to = $request->input('trip_to');
         $daytrip->members = $request->input('members');
@@ -110,6 +113,7 @@ class PaymentController extends Controller
         $taxitrip->to = $request->input('to');
         $taxitrip->cus_name = $request->input('cus_name');
         $taxitrip->mobile = $request->input('mobile');
+        $taxitrip->trip_type = "Normal trip";
         $taxitrip->distance = $request->input('distance');
         $taxitrip->w_hour = $request->input('w_hour');
         $taxitrip->w_charge = $request->input('w_charge');
