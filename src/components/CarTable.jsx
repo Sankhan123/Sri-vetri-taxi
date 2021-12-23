@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTable ,useSortBy, usePagination } from "react-table";
 
+
 const CarTable = () => {
   let Location = useLocation();
   const data = Location.state;
@@ -17,6 +18,7 @@ const CarTable = () => {
       console.log("Error");
     }
   };
+ 
   useEffect(() => {
     getData();
   }, []);
@@ -63,11 +65,7 @@ const CarTable = () => {
   usePagination
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({
-      columns: tableColumns,
-      data: tableData,
-    });
+  
 
   return (
     <div className="flex-grow-1">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+
 import Form from "../components/Form";
 import Button from "../components/Button";
 import CalCard from "../components/CalCard";
@@ -45,6 +46,8 @@ function Oneday() {
     setCustNo("")
     setKms(0)
   }
+
+
   return (
     <main className="d-flex justify-content-center align-items-center  vh-100">
       <div className="card shadow-sm py-4 px-5">

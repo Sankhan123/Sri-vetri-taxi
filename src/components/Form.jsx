@@ -14,6 +14,7 @@ const Form = ({ id, type, placeholder, value, label,handler,min,disable }) => {
         onChange={handler}
         min={min}
         disabled={disable}
+        required="required"
       />
     </>
   );
