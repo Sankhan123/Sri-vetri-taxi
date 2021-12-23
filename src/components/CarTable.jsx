@@ -29,15 +29,16 @@ const CarTable = () => {
         ? Object.keys(Data[0])
             .filter((key) => key !== "created_at" && key !== "updated_at")
             .map((key) => {
-                return {
-                  Header: key.charAt(0).toUpperCase() + key.slice(1),
-                  accessor: key,
-                  maxWidth: 10,
-                };
+              return {
+                Header: key.charAt(0).toUpperCase() + key.slice(1),
+                accessor: key,
+                maxWidth: 10,
+              };
             })
         : [],
     [Data]
   );
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -61,6 +62,13 @@ const CarTable = () => {
   useSortBy,
   usePagination
   );
+
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({
+      columns: tableColumns,
+      data: tableData,
+    });
+
   return (
     <div className="flex-grow-1">
      
@@ -89,7 +97,11 @@ const CarTable = () => {
               <tr  className="text-center" {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <td {...cell.getCellProps()}>
+                      {cell.column.Header === "Id"
+                        ? cell.row.index + 1
+                        : cell.render("Cell")}
+                    </td>
                   );
                 })}
               </tr>
