@@ -65,11 +65,7 @@ const CarTable = () => {
   usePagination
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({
-      columns: tableColumns,
-      data: tableData,
-    });
+  
 
   return (
     <div className="flex-grow-1">
