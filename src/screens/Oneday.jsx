@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
-import Form from "../components/Form";
-import Button from "../components/Button";
 import CalCard from "../components/CalCard";
 
 function Oneday() {
@@ -13,7 +10,7 @@ function Oneday() {
   const initPayment = 1800;
   const pricePerKm = 7;
   const totalPrice = initPayment + pricePerKm * kms;
-  
+
   function kmsHandler(e) {
     setKms(e.target.value);
   }
@@ -29,64 +26,95 @@ function Oneday() {
       cus_name: custName,
       mobile: custNo,
       distance: kms,
-      total: totalPrice
-    }
-    async function addbill(){
-      const response = await axios.post("http://127.0.0.1:8000/api/add-day-trip",data);
-      if(response){
+      total: totalPrice,
+    };
+    async function addbill() {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/add-day-trip",
+        data
+      );
+      if (response) {
         alert(response.data.message);
-      }else{
+      } else {
         alert("Something went wrong..!");
       }
     }
     addbill();
 
     console.log(JSON.stringify(data));
-    setCustName("")
-    setCustNo("")
-    setKms(0)
+    setCustName("");
+    setCustNo("");
+    setKms(0);
   }
-
 
   return (
     <main className="d-flex justify-content-center align-items-center  vh-100">
       <div className="card shadow-sm py-4 px-5">
-        <CalCard initPayment={initPayment} pricePerKm={pricePerKm} totalPrice={totalPrice}/>
+        <CalCard
+          initPayment={initPayment}
+          pricePerKm={pricePerKm}
+          totalPrice={totalPrice}
+        />
         <form onSubmit={submitHandler} className="pt-3">
-          <Form
-            id={"customer_name"}
+          <label className="mt-2 mb-1" htmlFor={"customer_name"}>
+            Customer Name :
+          </label>
+          <input
+            className={`form-control mb-2 border border-warning`}
             type={"text"}
+            id={"customer_name"}
+            name={"customer_name"}
             placeholder={"Customer Name"}
-            label={"Customer Name :"}
             value={custName}
-            handler={custNameHandler}
+            onChange={custNameHandler}
+            required="required"
           />
-          <Form
-            id={"mobile_no"}
+          <label className="mt-2 mb-1" htmlFor={"mobile_no"}>
+            Mobile No :
+          </label>
+          <input
+            className={`form-control mb-2 border border-warning`}
             type={"tel"}
+            pattern="^\d{10}$"
+            id={"mobile_no"}
+            name={"mobile_no"}
             placeholder={"Mobile No"}
-            label={"Mobile No :"}
             value={custNo}
-            handler={custNoHandler}
+            onChange={custNoHandler}
+            required="required"
           />
-          <Form
-            id={"initial_payment"}
-            type={"number"}
-            placeholder={"Initial Payment"}
-            label={"Initial Payment :"}
+          <label className="mt-2 mb-1" htmlFor={"initial_payment"}>
+          Initial Payment :
+          </label>
+          <input
             value={initPayment}
-            disable={true}
+            name="initial_payment"
+            id="initial_payment"
+            type="number"
+            className="form-control mt-1"
+            placeholder="Initial Payment"
+            disabled
           />
-          <Form
-            id={"kms_covered"}
+          <label className="mt-2 mb-1" htmlFor={"kms_covered"}>
+          Distance Travelled :
+          </label>
+          <input
+            className={`form-control mb-2 border border-warning`}
             type={"number"}
+            id={"kms_covered"}
+            name={"kms_covered"}
             placeholder={"Distance Travelled"}
-            label={"Distance Travelled :"}
             value={kms}
-            handler={kmsHandler}
-            min={0}
+            onChange={kmsHandler}
+            required="required"
+            min={1}
           />
-          <Button>Submit</Button>
+          <div className="text-center mt-4">
+            <button value="submit" className="btn btn-warning" type="submit">
+              {" "}
+              Submit{" "}
+            </button>
+          </div>
         </form>
       </div>
     </main>
