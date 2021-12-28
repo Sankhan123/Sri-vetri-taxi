@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2021 at 06:07 AM
+-- Generation Time: Dec 28, 2021 at 12:40 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -253,6 +253,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'user',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -262,15 +263,16 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'TN34AB7864', 'TN34AB7864', '$2y$10$YN458OfJHzDidDD9rW/DZ.FzZ0coDo93jK2eX0tu7yKFF3wv3Oo0u', NULL, '2021-12-25 05:00:05', '2021-12-25 05:00:05'),
-(2, 'TN34AC6366', 'TN34AC6366', '$2y$10$aX4iTID9nEAmRV4DzZj7ZeyfH/mfRa71lvJiAKO2nTzir54e56yWi', NULL, '2021-12-25 05:00:51', '2021-12-25 05:00:51'),
-(3, 'TN34AC8596', 'TN34AC8596', '$2y$10$vmcoDxr/xQ..xbUbvxf5Sub3UGhJuihl2WI2dBouAwx.0MVl0PXNe', NULL, '2021-12-25 05:01:24', '2021-12-25 05:01:24'),
-(4, 'TN50AW1600', 'TN50AW1600', '$2y$10$xShE4HTKbuMDzbSSmzFEee0b9YFoB4KZdaT1cz0AeIWjcbG106rhW', NULL, '2021-12-25 05:02:21', '2021-12-25 05:02:21'),
-(5, 'TN34AE0184', 'TN34AE0184', '$2y$10$ttFWTIm.f3H8RbXZ01XscuKuMm2F2ms8rVJN9zHQHXQChk.G5nTHO', NULL, '2021-12-25 05:02:59', '2021-12-25 05:02:59'),
-(6, 'TN43K0649', 'TN43K0649', '$2y$10$C4tLd8/VauuF9Jy7Mq3FU.Bnpu2pxhPM228oS09mZIq4FMN5RA0Aq', NULL, '2021-12-25 05:03:48', '2021-12-25 05:03:48'),
-(7, 'TN36AF5438', 'TN36AF5438', '$2y$10$hsXfywOL5s4E45k1b.eMSuV0YQOPxaZBIrhozNbvWk4ElqP4HYvjq', NULL, '2021-12-25 05:04:44', '2021-12-25 05:04:44'),
-(8, 'TN88D9990', 'TN88D9990', '$2y$10$wiX3h3bb24e2Ip.ye6T.feld7L./LgrdVrmSv5631N313Q6WHU/9W', NULL, '2021-12-25 05:05:20', '2021-12-25 05:05:20');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'TN34AB7864', 'TN34AB7864', '$2y$10$YN458OfJHzDidDD9rW/DZ.FzZ0coDo93jK2eX0tu7yKFF3wv3Oo0u', 'user', NULL, '2021-12-25 05:00:05', '2021-12-25 05:00:05'),
+(2, 'TN34AC6366', 'TN34AC6366', '$2y$10$aX4iTID9nEAmRV4DzZj7ZeyfH/mfRa71lvJiAKO2nTzir54e56yWi', 'user', NULL, '2021-12-25 05:00:51', '2021-12-25 05:00:51'),
+(3, 'TN34AC8596', 'TN34AC8596', '$2y$10$vmcoDxr/xQ..xbUbvxf5Sub3UGhJuihl2WI2dBouAwx.0MVl0PXNe', 'user', NULL, '2021-12-25 05:01:24', '2021-12-25 05:01:24'),
+(4, 'TN50AW1600', 'TN50AW1600', '$2y$10$xShE4HTKbuMDzbSSmzFEee0b9YFoB4KZdaT1cz0AeIWjcbG106rhW', 'user', NULL, '2021-12-25 05:02:21', '2021-12-25 05:02:21'),
+(5, 'TN34AE0184', 'TN34AE0184', '$2y$10$ttFWTIm.f3H8RbXZ01XscuKuMm2F2ms8rVJN9zHQHXQChk.G5nTHO', 'user', NULL, '2021-12-25 05:02:59', '2021-12-25 05:02:59'),
+(6, 'TN43K0649', 'TN43K0649', '$2y$10$C4tLd8/VauuF9Jy7Mq3FU.Bnpu2pxhPM228oS09mZIq4FMN5RA0Aq', 'user', NULL, '2021-12-25 05:03:48', '2021-12-25 05:03:48'),
+(7, 'TN36AF5438', 'TN36AF5438', '$2y$10$hsXfywOL5s4E45k1b.eMSuV0YQOPxaZBIrhozNbvWk4ElqP4HYvjq', 'user', NULL, '2021-12-25 05:04:44', '2021-12-25 05:04:44'),
+(8, 'TN88D9990', 'TN88D9990', '$2y$10$wiX3h3bb24e2Ip.ye6T.feld7L./LgrdVrmSv5631N313Q6WHU/9W', 'user', NULL, '2021-12-25 05:05:20', '2021-12-25 05:05:20'),
+(9, 'admin', 'admin', '$2y$10$ckQk9eOdkF4ybd1muR8TVuxreS6ARRhBRkILIPerj3psjnMRrShP2', 'admin', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -396,7 +398,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

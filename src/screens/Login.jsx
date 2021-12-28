@@ -16,20 +16,31 @@ function Login() {
             password : password,
         }
                    
-        console.log(JSON.stringify(data))
         async function logincheck(){
-            const response = await axios.post(`http://127.0.0.1:8000/api/auth/login`,data);
+
+            try{
+
+                const response = await axios.post(`http://127.0.0.1:8000/api/auth/login`,data);
+            
             if (response) {
-                console.log(response);
-                
+                console.log(response.data);
                 const token = response.data.access_token;
                 localStorage.setItem('token',JSON.stringify(response));
-                Navigate("/");
+
+                if(response.data.user.role==="admin"){
+                    Navigate("/dashboard");
+                }else{
+                    Navigate("/");
+                }
+                
               }
-              else {
-                alert(response.message);
-                Navigate("/login");
-              }
+
+            }catch(e){
+                alert(" Invalid username or password");
+
+            }
+            
+              
           }
           logincheck();
 

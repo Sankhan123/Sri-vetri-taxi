@@ -69,8 +69,9 @@ const CarTable = () => {
 
   return (
     <div className="flex-grow-1">
-     
-      <table className="table table-striped w-75 m-auto" {...getTableProps()}>
+     <h2 className="text-center mt-3">Trip Details</h2>
+     <hr></hr>
+      <table className="table table-striped m-auto" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr className="text-center" {...headerGroup.getHeaderGroupProps()}>
@@ -151,6 +152,7 @@ const CarTable = () => {
           ))}
         </select>
       </div>
+      <hr></hr>
     </div>
   );
 };
