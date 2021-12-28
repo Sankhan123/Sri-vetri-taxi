@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2021 at 04:21 PM
+-- Generation Time: Dec 28, 2021 at 06:07 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -65,7 +65,8 @@ CREATE TABLE `hillstrip_details` (
 --
 
 INSERT INTO `hillstrip_details` (`id`, `car_id`, `cus_name`, `mobile`, `trip_type`, `trip_from`, `trip_to`, `payment`, `members`, `trip_days`, `driver_batta`, `total`, `created_at`, `updated_at`) VALUES
-(1, 1, 'dina', '6543432', 'Hills trip', 'Tiruchengode', 'Yercaud', 3000, 4, 2, 600, '3600', '2021-12-23 15:16:49', '2021-12-23 15:16:49');
+(1, 1, 'dina', '6543432', 'Hills trip', 'Tiruchengode', 'Yercaud', 3000, 4, 2, 600, '3600', '2021-12-23 15:16:49', '2021-12-23 15:16:49'),
+(2, 1, 'dina', '2436532', 'Hills trip', 'Tiruchengode', 'Ooty', 6000, 4, 3, 900, '6900', '2021-12-28 04:54:41', '2021-12-28 04:54:41');
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,8 @@ CREATE TABLE `normaltaxi_details` (
 --
 
 INSERT INTO `normaltaxi_details` (`id`, `car_id`, `from`, `to`, `cus_name`, `mobile`, `trip_type`, `distance`, `w_hour`, `w_charge`, `driver_batta`, `total`, `created_at`, `updated_at`) VALUES
-(1, 1, 'tgode', 'erode', 'santhosh', '32323', 'Normal trip', 310, 1, 60, 300, '4080', '2021-12-23 15:15:07', '2021-12-23 15:15:07');
+(1, 1, 'tgode', 'erode', 'santhosh', '32323', 'Normal trip', 310, 1, 60, 300, '4080', '2021-12-23 15:15:07', '2021-12-23 15:15:07'),
+(2, 1, 'kabilarmalai', 'tgode', 'sharan', '8765892', 'Normal trip', 22, 3, 240, 0, '504', '2021-12-28 04:48:43', '2021-12-28 04:48:43');
 
 -- --------------------------------------------------------
 
@@ -206,7 +208,9 @@ CREATE TABLE `onedaytrip_details` (
 --
 
 INSERT INTO `onedaytrip_details` (`id`, `car_id`, `cus_name`, `mobile`, `trip_type`, `fixed_payment`, `distance`, `total`, `created_at`, `updated_at`) VALUES
-(1, 1, 'santhosh', '345678554', 'Day trip', 1800, 60, '2220', '2021-12-23 15:06:57', '2021-12-23 15:06:57');
+(1, 1, 'santhosh', '345678554', 'Day trip', 1800, 60, '2220', '2021-12-23 15:06:57', '2021-12-23 15:06:57'),
+(2, 1, 'ravi', '23456', 'Day trip', 1800, 20, '1940', '2021-12-28 04:42:31', '2021-12-28 04:42:31'),
+(3, 1, 'Ravi', '21457654', 'Day trip', 1800, 50, '2150', '2021-12-28 04:44:49', '2021-12-28 04:44:49');
 
 -- --------------------------------------------------------
 
@@ -248,12 +252,25 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'TN34AB7864', 'TN34AB7864', '$2y$10$YN458OfJHzDidDD9rW/DZ.FzZ0coDo93jK2eX0tu7yKFF3wv3Oo0u', NULL, '2021-12-25 05:00:05', '2021-12-25 05:00:05'),
+(2, 'TN34AC6366', 'TN34AC6366', '$2y$10$aX4iTID9nEAmRV4DzZj7ZeyfH/mfRa71lvJiAKO2nTzir54e56yWi', NULL, '2021-12-25 05:00:51', '2021-12-25 05:00:51'),
+(3, 'TN34AC8596', 'TN34AC8596', '$2y$10$vmcoDxr/xQ..xbUbvxf5Sub3UGhJuihl2WI2dBouAwx.0MVl0PXNe', NULL, '2021-12-25 05:01:24', '2021-12-25 05:01:24'),
+(4, 'TN50AW1600', 'TN50AW1600', '$2y$10$xShE4HTKbuMDzbSSmzFEee0b9YFoB4KZdaT1cz0AeIWjcbG106rhW', NULL, '2021-12-25 05:02:21', '2021-12-25 05:02:21'),
+(5, 'TN34AE0184', 'TN34AE0184', '$2y$10$ttFWTIm.f3H8RbXZ01XscuKuMm2F2ms8rVJN9zHQHXQChk.G5nTHO', NULL, '2021-12-25 05:02:59', '2021-12-25 05:02:59'),
+(6, 'TN43K0649', 'TN43K0649', '$2y$10$C4tLd8/VauuF9Jy7Mq3FU.Bnpu2pxhPM228oS09mZIq4FMN5RA0Aq', NULL, '2021-12-25 05:03:48', '2021-12-25 05:03:48'),
+(7, 'TN36AF5438', 'TN36AF5438', '$2y$10$hsXfywOL5s4E45k1b.eMSuV0YQOPxaZBIrhozNbvWk4ElqP4HYvjq', NULL, '2021-12-25 05:04:44', '2021-12-25 05:04:44'),
+(8, 'TN88D9990', 'TN88D9990', '$2y$10$wiX3h3bb24e2Ip.ye6T.feld7L./LgrdVrmSv5631N313Q6WHU/9W', NULL, '2021-12-25 05:05:20', '2021-12-25 05:05:20');
 
 --
 -- Indexes for dumped tables
@@ -337,7 +354,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `hillstrip_details`
 --
 ALTER TABLE `hillstrip_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `localtrip_details`
@@ -349,7 +366,7 @@ ALTER TABLE `localtrip_details`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -361,13 +378,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `normaltaxi_details`
 --
 ALTER TABLE `normaltaxi_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `onedaytrip_details`
 --
 ALTER TABLE `onedaytrip_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -379,7 +396,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

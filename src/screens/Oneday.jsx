@@ -32,7 +32,7 @@ function Oneday() {
       total: totalPrice
     }
     async function addbill(){
-      const response = await axios.post("http://127.0.0.1:8000/api/add-day-trip",data);
+      const response = await axios.post("http://127.0.0.1:8000/api/auth/add-day-trip",data);
       if(response){
         alert(response.data.message);
       }else{

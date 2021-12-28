@@ -20,7 +20,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("pavisakthi1699@gmail.com")->send(new QuoteMail($details));
+        Mail::to("19bca130@hicas.ac.in")->send(new QuoteMail($details));
         
         $daytrip = new Oneday();
         $daytrip->cus_name = $request->input('cus_name');

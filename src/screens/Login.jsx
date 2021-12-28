@@ -12,19 +12,22 @@ function Login() {
         e.preventDefault();
 
         let data = {
-            name : name,
+            email : name,
             password : password,
         }
                    
         console.log(JSON.stringify(data))
         async function logincheck(){
-            const response = await axios.post(`http://127.0.0.1:8000/api/check-login`,data);
-            if (response.data.status === 200 ) {
-                alert(response.data.message);
+            const response = await axios.post(`http://127.0.0.1:8000/api/auth/login`,data);
+            if (response) {
+                console.log(response);
+                
+                const token = response.data.access_token;
+                localStorage.setItem('token',JSON.stringify(response));
                 Navigate("/");
               }
               else {
-                alert(response.data.message);
+                alert(response.message);
                 Navigate("/login");
               }
           }
