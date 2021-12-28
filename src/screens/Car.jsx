@@ -9,11 +9,13 @@ const Car = () => {
     let location = useLocation();
     const [cars, setCars] = useState([]);
 
+    
+
     useEffect( () => {
 
         async function getCars()
         {
-        const res = await axios.get("http://127.0.0.1:8000/api/cars-list");
+        const res = await axios.get("http://127.0.0.1:8000/api/auth/cars-list");
         if (res) {
             setCars(res.data.data);
         }

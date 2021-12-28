@@ -10,9 +10,9 @@ const CarTable = () => {
   const data = Location.state;
   const [Data, setData] = useState([]);
   const getData = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/api/cars-data/${data}`);
+    const res = await axios.get(`http://127.0.0.1:8000/api/auth/cars-data/${data}`);
     if (res) {
-      const data = res.data.daytrip;
+      const data = res.data.all;
       setData(data);
     } else {
       console.log("Error");
@@ -69,8 +69,9 @@ const CarTable = () => {
 
   return (
     <div className="flex-grow-1">
-     
-      <table className="table table-striped w-75 m-auto" {...getTableProps()}>
+     <h2 className="text-center mt-3">Trip Details</h2>
+     <hr></hr>
+      <table className="table table-striped m-auto" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr className="text-center" {...headerGroup.getHeaderGroupProps()}>
@@ -107,7 +108,7 @@ const CarTable = () => {
           })}
         </tbody>
       </table>
-      <div className="p-3 text-center">
+      <div className="p-3 mx-3 text-center">
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
         </button>{' '}
@@ -144,13 +145,14 @@ const CarTable = () => {
             setPageSize(Number(e.target.value))
           }}
         >
-          {[5, 20, 30, 40, 50].map(pageSize => (
+          {[10, 20, 30, 40, 50].map(pageSize => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
           ))}
         </select>
       </div>
+      <hr></hr>
     </div>
   );
 };

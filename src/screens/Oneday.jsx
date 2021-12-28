@@ -26,14 +26,12 @@ function Oneday() {
       cus_name: custName,
       mobile: custNo,
       distance: kms,
-      total: totalPrice,
-    };
-    async function addbill() {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/add-day-trip",
-        data
-      );
-      if (response) {
+
+      total: totalPrice
+    }
+    async function addbill(){
+      const response = await axios.post("http://127.0.0.1:8000/api/auth/add-day-trip",data);
+      if(response){
         alert(response.data.message);
       } else {
         alert("Something went wrong..!");

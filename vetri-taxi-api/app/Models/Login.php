@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Login extends Model
 {
-    use HasFactory;
-    protected $hidden = [
-        'password',
-    ];
+    use HasFactory,Notifiable;
+    
     protected $table = 'login';
     protected $fillable = [
         
@@ -19,4 +18,9 @@ class Login extends Model
          'driver',
               
    ];
+
+   protected $hidden = [
+    'password',
+    'remember_token',
+];
 }

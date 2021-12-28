@@ -36,7 +36,7 @@ function Hillstrip() {
           }
         console.log(JSON.stringify(data))
         async function addbill(){
-            const response = await axios.post("http://127.0.0.1:8000/api/hills-trip",data);
+            const response = await axios.post("http://127.0.0.1:8000/api/auth/hills-trip",data);
             if(response){
               alert(response.data.message);
             }else{
