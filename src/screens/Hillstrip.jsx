@@ -72,7 +72,7 @@ function Hillstrip() {
                                     </div>
                                     <div className=" mt-3 form-group">
                                         <label htmlFor="number">Phone No : </label>
-                                        <input required="required" onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" className="form-control mt-1" placeholder="Phone No" />
+                                        <input required="required" onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" pattern="^\d{10}$" className="form-control mt-1" placeholder="Phone No" />
                                     </div>
                                     <div className="row">
                                     <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
@@ -83,7 +83,7 @@ function Hillstrip() {
                                         </div>
                                          <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
                                         <label htmlFor="to">Trip To : </label>
-                                        <select id="select" name={tripto} className="form-control form-control-select2" onChange={(e) => tariffcalc(e.target.value)} data-fouc>
+                                        <select id="select" name={tripto} className="form-control form-control-select2" onChange={(e) => tariffcalc(e.target.value)} data-fouc required>
                                             <option value="">Select place</option>
                                             <option value="Yercaud">Yercaud</option>
                                             <option value="Kolli Hills">Kolli Hills</option>
@@ -96,7 +96,7 @@ function Hillstrip() {
                                     <div className="row">
                                         <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                         <label htmlFor="from">Days : </label>
-                                        <input required="required" value={tripdays} name="tripdays" onChange={(e) => setTripdays(e.target.value)} type="text" className="form-control mt-1" placeholder="Enter days" />
+                                        <input required="required" min="1" value={tripdays} name="tripdays" onChange={(e) => setTripdays(e.target.value)} type="number" className="form-control mt-1" placeholder="Enter days" />
                                         </div>
                                         <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                         <label htmlFor="from">Members : </label>

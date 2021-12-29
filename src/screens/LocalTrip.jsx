@@ -77,12 +77,12 @@ function LocalTrip() {
                                         </div>
                                         <div className=" mt-3 form-group">
                                             <label htmlFor="number">Phone No : </label>
-                                            <input onChange={(e) => setPhone(e.target.value)} name="number" value={phone}  required="required" type="tel" className="form-control mt-1" placeholder="Phone No" />
+                                            <input onChange={(e) => setPhone(e.target.value)} name="number" value={phone}  required="required" type="tel" pattern="^\d{10}$" className="form-control mt-1" placeholder="Phone No" />
                                         </div>
                                         <div className="row">
                                             <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                                 <label htmlFor="from">Trip Hour : </label>
-                                                <input onChange={(e) => [setTriphr(e.target.value), setkm(e.target.value)]} value={triphr} name="triphr" type="text" required="required"  className="form-control mt-1" placeholder="Enter hour" />
+                                                <input onChange={(e) => [setTriphr(e.target.value), setkm(e.target.value)]} value={triphr} name="triphr" type="number" required="required"  className="form-control mt-1" placeholder="Enter hour" min={1} max={2} />
                                             </div>
                                             <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
                                                 <label htmlFor="to">Kms Allowed : </label>

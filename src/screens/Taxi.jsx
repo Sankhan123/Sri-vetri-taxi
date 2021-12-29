@@ -82,17 +82,17 @@ function Taxi() {
                                     </div>
                                     <div className=" mt-3 form-group">
                                         <label htmlFor="number">Phone No : </label>
-                                        <input required="required" onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" className="form-control mt-1" placeholder="Phone No" />
+                                        <input required="required" onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" pattern="^\d{10}$" className="form-control mt-1" placeholder="Phone No" />
                                     </div>
 
                                     <div className="row">
                                         <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                             <label htmlFor="kms">Distance Travelled : </label>
-                                            <input required="required" onChange={(e) => setKm(e.target.value)} name="kms" value={km} type="tel" className="form-control mt-1" placeholder="Distance Travelled" />
+                                            <input required="required" onChange={(e) => setKm(e.target.value)} name="kms" value={km} type="number" min="1" className="form-control mt-1" placeholder="Distance Travelled" />
                                         </div>
                                         <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
                                             <label htmlFor="hrs">Waiting Hours : </label>
-                                            <input required="required" value={hr} onChange={(e) => setHr(e.target.value)} name="hrs" type="tel" className="form-control mt-1" placeholder="Waiting Hours" />
+                                            <input required="required" value={hr} onChange={(e) => setHr(e.target.value)} name="hrs" type="number" min="0" className="form-control mt-1" placeholder="Waiting Hours" />
                                         </div>
                                     </div>
 
