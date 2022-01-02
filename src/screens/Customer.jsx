@@ -5,13 +5,14 @@ import React from "react";
 import { useState, useMemo, useEffect } from "react";
 
 import { useTable ,useSortBy, usePagination } from "react-table";
+import authHeader from "../assets/header/auth-header";
 
 
 const Customer = () => {
  
   const [Data, setData] = useState([]);
   const getData = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/api/auth/cus-list`);
+    const res = await axios.get(`http://127.0.0.1:8000/api/auth/cus-list`,{ headers: authHeader() });
     if (res) {
       const data = res.data.all;
       setData(data);

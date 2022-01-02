@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios";
+import authHeader from '../assets/header/auth-header';
 
 function Taxi() {
 
@@ -31,7 +32,7 @@ function Taxi() {
           }
         console.log(JSON.stringify(data))
         async function addbill(){
-            const response = await axios.post("http://127.0.0.1:8000/api/auth/taxi-trip",data);
+            const response = await axios.post("http://127.0.0.1:8000/api/auth/taxi-trip", data, { headers: authHeader() });
             if(response){
               alert(response.data.message);
             }else{

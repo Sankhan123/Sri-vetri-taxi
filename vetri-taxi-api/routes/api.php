@@ -14,14 +14,13 @@ Route::group([
 
 ], function ($router) {
     Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/log-out', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
     Route::get('/cars-list',[AccessController::class,'get_cars']);
     Route::get('/cus-list',[AccessController::class,'get_customers']);
     Route::get('/cars-data/{id}',[AccessController::class,'get_trips']);
-    Route::get('user',[AuthController::class,'user']);   
     
     Route::post('/add-day-trip',[PaymentController::class,'add_day_trip']);
     Route::post('/local-trip',[PaymentController::class,'add_local_trip']);

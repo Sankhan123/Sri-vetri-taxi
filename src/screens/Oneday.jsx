@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import CalCard from "../components/CalCard";
+import authHeader from "../assets/header/auth-header";
 
 function Oneday() {
   const [kms, setKms] = useState(0);
@@ -30,7 +31,7 @@ function Oneday() {
       total: totalPrice
     }
     async function addbill(){
-      const response = await axios.post("http://127.0.0.1:8000/api/auth/add-day-trip",data);
+      const response = await axios.post("http://127.0.0.1:8000/api/auth/add-day-trip",data, { headers: authHeader() });
       if(response){
         alert(response.data.message);
       } else {

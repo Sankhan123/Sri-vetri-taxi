@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios";
+import authHeader from '../assets/header/auth-header';
 
+   
 function LocalTrip() {
 
     const [triphr, setTriphr] = useState("");
@@ -39,8 +41,9 @@ function LocalTrip() {
             total: result
         }
         console.log(JSON.stringify(data))
+        
         async function addbill() {
-            const response = await axios.post("http://127.0.0.1:8000/api/auth/local-trip", data);
+            const response = await axios.post("http://127.0.0.1:8000/api/auth/local-trip", data, { headers: authHeader() });
             if (response) {
                 alert(response.data.message);
             } else {

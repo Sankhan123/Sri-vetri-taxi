@@ -23,9 +23,9 @@ function Login() {
                 const response = await axios.post(`http://127.0.0.1:8000/api/auth/login`,data);
             
             if (response) {
-                console.log(response.data);
+                
                 const token = response.data.access_token;
-                localStorage.setItem('token',JSON.stringify(response));
+                localStorage.setItem("user",JSON.stringify(response.data));
 
                 if(response.data.user.role==="admin"){
                     Navigate("/dashboard");

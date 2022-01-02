@@ -1,19 +1,32 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link,Outlet,useLocation } from "react-router-dom";
+import { Link,Outlet,useLocation,useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.svg";
 import Home from "../assets/home-solid.svg";
 import Team from "../assets/social.svg";
 import Projects from "../assets/starred.svg";
+import axios from "axios";
 
 import PowerOff from "../assets/power-off-solid.svg";
+import authHeader from "../assets/header/auth-header";
 
 function Dashboard() {
   const location = useLocation();
+  let Navigate = useNavigate();
  
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+
+  async function logout(){
+    const res = await axios.get('http://127.0.0.1:8000/api/auth/log-out',{ headers: authHeader() });
+    if(res){
+      console.log(res);
+      localStorage.setItem("user","");
+      Navigate("/login");
+      
+    }
+  }
 
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
@@ -67,7 +80,7 @@ function Dashboard() {
                 <p>Admin</p>
               </Name>
               <Logout>
-                <img src={PowerOff} alt="logout" />
+                <img src={PowerOff} alt="logout" onClick={() => logout() }/>
               </Logout>
             </Details>
           </Profile>
