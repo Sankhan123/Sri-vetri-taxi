@@ -33,18 +33,32 @@ const CarTable = () => {
     () =>
       Data[0]
         ? Object.keys(Data[0])
-            .filter((key) => key !== "created_at" && key !== "updated_at")
+            .filter((key) => key !== "created_at" && key !== "updated_at" && key !== "car_id")
             .map((key) => {
               return {
                 Header: key.charAt(0).toUpperCase() + key.slice(1),
                 accessor: key,
                 maxWidth: 10,
+                Cell: (props) => {
+                  if (props.value) {
+                    return props.value;
+                  } else {
+                    return <span>--</span>;
+                  }
+                },
               };
             })
         : [],
     [Data]
   );
-
+  const sno = {
+    Header: 'Sno',
+    Accessor: 'Sno',
+    Cell: ({ row }) => {
+      return row.index+1;
+    },
+  }
+  tableColumns.unshift(sno);
   const {
     getTableProps,
     getTableBodyProps,
@@ -155,9 +169,7 @@ const CarTable = () => {
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>
-                      {cell.column.Header === "Id"
-                        ? cell.row.index + 1
-                        : cell.render("Cell")}
+                      {cell.render("Cell")}
                     </td>
                   );
                 })}
