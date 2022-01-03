@@ -32,12 +32,17 @@ function Taxi() {
           }
         console.log(JSON.stringify(data))
         async function addbill(){
-            const response = await axios.post("http://127.0.0.1:8000/api/auth/taxi-trip", data, { headers: authHeader() });
+            try{
+                const response = await axios.post("http://127.0.0.1:8000/api/auth/taxi-trip", data, { headers: authHeader() });
             if(response){
               alert(response.data.message);
             }else{
               alert("Something went wrong..!");
             }
+            }catch(e){
+                alert("Something went wrong..!");
+            }
+            
           }
           addbill();
 
