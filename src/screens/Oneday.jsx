@@ -5,6 +5,12 @@ import CalCard from "../components/CalCard";
 import authHeader from "../assets/header/auth-header";
 
 function Oneday() {
+  let car_id='';
+  if(localStorage.length){
+      const user_val = localStorage.getItem('user');
+      const user = JSON.parse(user_val);
+      car_id = user.user.id; 
+  }
   const [kms, setKms] = useState(0);
   const [custName, setCustName] = useState("");
   const [custNo, setCustNo] = useState("");
@@ -24,6 +30,7 @@ function Oneday() {
   function submitHandler(e) {
     e.preventDefault();
     let data = {
+      car_id : car_id,
       cus_name: custName,
       mobile: custNo,
       distance: kms,
@@ -31,10 +38,12 @@ function Oneday() {
       total: totalPrice
     }
     async function addbill(){
-      const response = await axios.post("http://127.0.0.1:8000/api/auth/add-day-trip",data, { headers: authHeader() });
+      try{
+        const response = await axios.post("http://127.0.0.1:8000/api/auth/add-day-trip",data, { headers: authHeader() });
       if(response){
         alert(response.data.message);
-      } else {
+      }
+      }catch(e){
         alert("Something went wrong..!");
       }
     }

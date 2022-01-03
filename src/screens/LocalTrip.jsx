@@ -4,7 +4,12 @@ import authHeader from '../assets/header/auth-header';
 
    
 function LocalTrip() {
-
+    let car_id='';
+        if(localStorage.length){
+            const user_val = localStorage.getItem('user');
+            const user = JSON.parse(user_val);
+            car_id = user.user.id; 
+        }
     const [triphr, setTriphr] = useState("");
     const [tripkms, setTripkms] = useState("");
     const [name, setName] = useState("");
@@ -31,6 +36,7 @@ function LocalTrip() {
     function subHandler(e) {
         e.preventDefault();
         let data = {
+            car_id: car_id,
             triphr: triphr,
             tripkms: tripkms,
             payment: payment,
@@ -43,10 +49,13 @@ function LocalTrip() {
         console.log(JSON.stringify(data))
         
         async function addbill() {
-            const response = await axios.post("http://127.0.0.1:8000/api/auth/local-trip", data, { headers: authHeader() });
+            try{
+                const response = await axios.post("http://127.0.0.1:8000/api/auth/local-trip", data, { headers: authHeader() });
             if (response) {
                 alert(response.data.message);
-            } else {
+            }
+            }
+            catch(e) {
                 alert("Something went wrong..!");
             }
         }

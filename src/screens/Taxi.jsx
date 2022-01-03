@@ -3,7 +3,12 @@ import axios from "axios";
 import authHeader from '../assets/header/auth-header';
 
 function Taxi() {
-
+    let car_id='';
+        if(localStorage.length){
+            const user_val = localStorage.getItem('user');
+            const user = JSON.parse(user_val);
+            car_id = user.user.id; 
+        }      
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
     const [name, setName] = useState("");
@@ -20,6 +25,7 @@ function Taxi() {
     function subHandler(e) {
         e.preventDefault();
         let data = {
+            car_id: car_id,
             from: start,
             to: end,
             cus_name: name,
@@ -36,8 +42,6 @@ function Taxi() {
                 const response = await axios.post("http://127.0.0.1:8000/api/auth/taxi-trip", data, { headers: authHeader() });
             if(response){
               alert(response.data.message);
-            }else{
-              alert("Something went wrong..!");
             }
             }catch(e){
                 alert("Something went wrong..!");
