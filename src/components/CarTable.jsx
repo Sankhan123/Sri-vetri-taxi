@@ -17,7 +17,6 @@ const CarTable = () => {
     );
     if (res) {
       const data = res.data.all;
-      console.log(data);
       setData(data);
     } else {
       console.log("Error");
@@ -87,7 +86,6 @@ const CarTable = () => {
 
   function exportpdf(datas) {
     console.log("Saving report as pdf");
-    console.log(datas);
     const unit = "pt";
     const size = "A4"; // Use A1, A2, A3 or A4
     const orientation = "landscape"; // portrait or landscape

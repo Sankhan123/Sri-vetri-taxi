@@ -20,6 +20,7 @@ Route::group([
 
     Route::get('/cars-list',[AccessController::class,'get_cars']);
     Route::get('/cus-list',[AccessController::class,'get_customers']);
+    Route::get('/get-report',[AccessController::class,'admin_report']);
     Route::get('/cars-data/{id}',[AccessController::class,'get_trips']);
     
     Route::post('/add-day-trip',[PaymentController::class,'add_day_trip']);

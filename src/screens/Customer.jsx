@@ -1,12 +1,10 @@
-
-
 import axios from "axios";
 import React from "react";
 import { useState, useMemo, useEffect } from "react";
-
 import { useTable ,useSortBy, usePagination } from "react-table";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 import authHeader from "../assets/header/auth-header";
-
 
 const Customer = () => {
  
@@ -37,12 +35,26 @@ const Customer = () => {
                 Header: key.charAt(0).toUpperCase() + key.slice(1),
                 accessor: key,
                 maxWidth: 10,
+                Cell: (props) => {
+                  if (props.value) {
+                    return props.value;
+                  } else {
+                    return <span>--</span>;
+                  }
+                },
               };
             })
         : [],
     [Data]
   );
-
+  const sno = {
+    Header: 'S.No',
+    Accessor: 'Sno',
+    Cell: ({ row }) => {
+      return row.index+1;
+    },
+  }
+  tableColumns.unshift(sno);
   const {
     getTableProps,
     getTableBodyProps,
@@ -67,11 +79,59 @@ const Customer = () => {
   usePagination
   );
 
-  
+  function exportpdf() {
+    console.log("Saving report as pdf");
+    const unit = "pt";
+    const size = "A4"; // Use A1, A2, A3 or A4
+    const orientation = "landscape"; // portrait or landscape
+    const marginLeft = 40;
+    const doc = new jsPDF(orientation, unit, size);
+    doc.setFontSize(20);
+    const title = "TRIP DETAILS - Customers";
+    const headers = [
+      [
+        "SNO",
+        "DATE",
+        "TIME",
+        "CUSTOMER NAME",
+        "MOBILE",
+        "TRIP_TYPE",
+        "TRIP_FROM",
+        "TRIP_TO",
+        "DISTANCE",
+        "TOTAL",
+        "W_CHARGE",
+        "DRIVER_BATA",
+      ],
+    ];
+    console.log(Data);
+    const data = Data.map((row,i) => [
+      i+1,
+      row.date,
+      row.time,
+      row.customer,
+      row.mobile,
+      row.trip_type,
+      row.trip_from ? row.trip_from : '--',
+      row.trip_to ? row.trip_to : '--',
+      row.distance ? row.distance : '--',
+      row.total,
+      row.w_charge ? row.w_charge : '--',
+      row.driver_batta ? row.driver_batta : '--',
+    ]);
+    let content = {
+      startY: 50,
+      head: headers,
+      body: data,
+    };
+    doc.text(title, marginLeft, 40);
+    doc.autoTable(content);
+    doc.save("report.pdf");
+  }
 
   return (
     <div className="flex-grow-1">
-     <h2 className="text-center mt-3">Customers</h2>
+     <h3 className="text-center mt-3">Customers Trip details</h3>
      <hr></hr>
       <table className="table table-striped  m-auto" {...getTableProps()}>
         <thead>
@@ -111,6 +171,9 @@ const Customer = () => {
         </tbody>
       </table>
       <div className="p-3 mx-3 text-center">
+      <button className="btn btn-primary me-2" onClick={()=> exportpdf()}>
+          export as pdf
+        </button>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
         </button>{' '}

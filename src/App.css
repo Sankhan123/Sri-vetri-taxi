@@ -168,3 +168,6 @@ body {
   .z{
     z-index: -1;
   }
+  .cars{
+    cursor: pointer;
+  }

@@ -24,7 +24,6 @@ function Login() {
             
             if (response) {
                 
-                const token = response.data.access_token;
                 localStorage.setItem("user",JSON.stringify(response.data));
 
                 if(response.data.user.role==="admin"){

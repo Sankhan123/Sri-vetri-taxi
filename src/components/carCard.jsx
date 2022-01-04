@@ -4,7 +4,6 @@ import car from "../assets/car.jpeg"
 import { useNavigate } from "react-router";
 
 function CarCard({data,id}) {
-    console.log(data);
     let Navigate = useNavigate();
     const navigateToTable = () => {
       Navigate(`${id}`, { state: data });

@@ -5,9 +5,9 @@ import { Link,Outlet,useLocation,useNavigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import Home from "../assets/home-solid.svg";
 import Team from "../assets/social.svg";
-import Projects from "../assets/starred.svg";
+import Taxi from "../assets/taxi.svg";
 import axios from "axios";
-
+import Admin from "./Admin";
 import PowerOff from "../assets/power-off-solid.svg";
 import authHeader from "../assets/header/auth-header";
 
@@ -19,13 +19,19 @@ function Dashboard() {
   const handleClick = () => setClick(!click);
 
   async function logout(){
-    const res = await axios.get('http://127.0.0.1:8000/api/auth/log-out',{ headers: authHeader() });
+
+    try{
+      const res = await axios.get('http://127.0.0.1:8000/api/auth/log-out',{ headers: authHeader() });
     if(res){
       console.log(res);
       localStorage.removeItem('user');
       Navigate("/login");
       
     }
+    }catch(e){
+      console.log(e);
+    }
+    
   }
 
   const [profileClick, setprofileClick] = useState(false);
@@ -56,7 +62,7 @@ function Dashboard() {
               to="/dashboard/customer"
             >
               <img src={Team} alt="Team" />
-              <Text clicked={click}>Team</Text>
+              <Text clicked={click}>Customers</Text>
             </Item>
 
             <Item
@@ -64,20 +70,20 @@ function Dashboard() {
               className="active"
               to="/dashboard/car"
             >
-              <img src={Projects} alt="Projects" />
-              <Text clicked={click}>Projects</Text>
+              <img src={Taxi} alt="Projects" />
+              <Text clicked={click}>Cars</Text>
             </Item>
           </SlickBar>
 
           <Profile clicked={profileClick}>
             <img
               onClick={() => handleProfileClick()}
-              src="https://picsum.photos/200"
+              src={logo}
               alt="Profile"
             />
             <Details clicked={profileClick}>
               <Name>
-                <p>Admin</p>
+                <p>Logout</p>
               </Name>
               <Logout>
                 <img src={PowerOff} alt="logout" onClick={() => logout() }/>
@@ -87,7 +93,7 @@ function Dashboard() {
         </SidebarContainer>
       </Container>
       <>
-        {(location.pathname === "/dashboard") && <h1>Main Content Here</h1>}
+        {(location.pathname === "/dashboard") && <Admin />}
         <Outlet />
       </>
     </Main>
