@@ -8,7 +8,7 @@ function ProtectedRoute({ children }) {
     role = auth.user.role;
   }
   useEffect(() => {
-      if(!auth || !role === 'admin') {
+      if(!auth || !(role === 'admin')) {
         alert("You are not admin!!!"); 
       }
   }, []);
