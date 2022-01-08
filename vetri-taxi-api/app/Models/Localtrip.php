@@ -22,6 +22,10 @@ class Localtrip extends Model
           'mobile',
            'payment',
            'xtrakm',
+           'xtra_desc',
+            'xtracharge',
+            'tollcharge',
+            'discount',
            'xtracharge',
              'total',
               

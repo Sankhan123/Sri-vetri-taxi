@@ -28,6 +28,12 @@ class PaymentController extends Controller
         $daytrip->mobile = $request->input('mobile');
         $daytrip->trip_type = "Day trip";
         $daytrip->distance = $request->input('distance');
+
+        $daytrip->xtra_desc = $request->input('xtra_desc');
+        $daytrip->xtracharge = $request->input('xtracharge');
+        $daytrip->tollcharge = $request->input('tollcharge');
+        $daytrip->discount = $request->input('discount');
+
         $daytrip->total = $request->input('total');
         
         $daytrip->save();
@@ -56,6 +62,12 @@ class PaymentController extends Controller
         $daytrip->triphr = $request->input('triphr');
         $daytrip->distance = $request->input('tripkms');
         $daytrip->payment = $request->input('payment');
+
+        $daytrip->xtra_desc = $request->input('xtra_desc');
+        $daytrip->xtracharge = $request->input('xtracharge');
+        $daytrip->tollcharge = $request->input('tollcharge');
+        $daytrip->discount = $request->input('discount');
+
         $daytrip->xtrakm = $request->input('xtrakm');
         $daytrip->xtracharge = $request->input('xtracharge');
         $daytrip->total = $request->input('total');
@@ -87,6 +99,12 @@ class PaymentController extends Controller
         $daytrip->trip_from = $request->input('trip_from');
         $daytrip->trip_to = $request->input('trip_to');
         $daytrip->members = $request->input('members');
+
+        $daytrip->xtra_desc = $request->input('xtra_desc');
+        $daytrip->xtracharge = $request->input('xtracharge');
+        $daytrip->tollcharge = $request->input('tollcharge');
+        $daytrip->discount = $request->input('discount');
+
         $daytrip->payment = $request->input('payment');
         $daytrip->trip_days = $request->input('trip_days');
         $daytrip->driver_batta = $request->input('driver_batta');
@@ -119,6 +137,12 @@ class PaymentController extends Controller
         $taxitrip->mobile = $request->input('mobile');
         $taxitrip->trip_type = "Normal trip";
         $taxitrip->distance = $request->input('distance');
+
+        $taxitrip->xtra_desc = $request->input('xtra_desc');
+        $taxitrip->xtracharge = $request->input('xtracharge');
+        $taxitrip->tollcharge = $request->input('tollcharge');
+        $taxitrip->discount = $request->input('discount');
+
         $taxitrip->w_hour = $request->input('w_hour');
         $taxitrip->w_charge = $request->input('w_charge');
         $taxitrip->driver_batta = $request->input('driver_batta');

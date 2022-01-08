@@ -64,15 +64,10 @@ function Taxi() {
         <h2 className="my-4">Taxi</h2>
         <div className="container">
             <div className="row">
-
                 <div className="auth-wrapper">
-
                     <div className="col-sm-12 col-md-10 col-lg-10 taxi-inner">
                         <div className="row">
-
-
                             <div className="form col-md-6 col-lg-6 col-sm-12">
-
 
                                 <form onSubmit={subHandler}>
                                 <div className="row">
@@ -112,8 +107,6 @@ function Taxi() {
                                 </form>
                             </div>
 
-
-
                             <div className=" p-3   mt-4 result-inner col-md-5 col-lg-5 col-sm-12">
 
                                 <div className="row">
@@ -136,12 +129,10 @@ function Taxi() {
                                         : {hr} Hour
                                     </div>
 
-
                                     {km >= 300 ?
                                         (<><div className="col-7">
                                             <p>Driver Beta</p>
                                         </div>
-
                                             <div className="col-5">
                                                 : 300 ₹
                                             </div></>) : (<></>)
@@ -168,13 +159,10 @@ function Taxi() {
 
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         </div>

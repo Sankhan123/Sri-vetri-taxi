@@ -19,6 +19,10 @@ class Oneday extends Model
           'trip_type',
            'fixed_payment',
             'distance',
+            'xtra_desc',
+            'xtracharge',
+            'tollcharge',
+            'discount',
              'total',
               
    ];
