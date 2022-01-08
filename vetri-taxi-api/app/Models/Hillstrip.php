@@ -20,6 +20,10 @@ class Hillstrip extends Model
            'payment',
            'members',
            'trip_days',
+           'xtra_desc',
+            'xtracharge',
+            'tollcharge',
+            'discount',
            'driver_batta',
              'total',
               
