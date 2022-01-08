@@ -1,7 +1,12 @@
 import React from "react";
 import Logo from "./Logo";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 function Profile() {
+  const Navigate = useNavigate();
+  function handleLogout() {
+    sessionStorage.removeItem('user');
+    Navigate('/login');
+  }
   return (
     <div className="col-sm-9 my-auto col-md-7 col-lg-5 mx-auto">
       <div className="card border-0 shadow pt-4 rounded-3 ">
@@ -32,6 +37,7 @@ function Profile() {
             >
               Hills Trip
             </Link>
+            <button onClick={handleLogout} className="border border-2 border-warning mt-3 fw-bold  text-light  btn btn-warning">Log Out</button>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ function Dashboard() {
       const res = await axios.get('http://127.0.0.1:8000/api/auth/log-out',{ headers: authHeader() });
     if(res){
       console.log(res);
-      localStorage.removeItem('user');
+      sessionStorage.removeItem('user');
       Navigate("/login");
       
     }
