@@ -66,9 +66,10 @@ function Oneday() {
     setCustName("");
     setCustNo("");
     setKms(0);
+
     setDesc("");
     setXtra(0);
-    setKms(0);
+    setDiscount(0);
     setToll(0);
   }
   return (

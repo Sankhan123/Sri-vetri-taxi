@@ -14,6 +14,11 @@ function Hillstrip() {
     const [name, setName] = useState("");
     const [payment, setPayment] = useState("");
     const [phone, setPhone] = useState("");
+
+    const [xtracharge, setXtra] = useState(0);
+    const [discount, setDiscount] = useState(0);
+    const [tollcharge, setToll] = useState(0);
+    const [description, setDesc] = useState("");
     let batta = 0;
     batta = 300 * tripdays;
     let result = 0;
@@ -26,6 +31,9 @@ function Hillstrip() {
     }
 
     batta>0 ? result = payment + batta : result = payment;
+    let calc = 0;
+    discount >0 ? calc = (parseFloat(tollcharge) + parseFloat(xtracharge))-parseFloat(discount) : calc = parseFloat(tollcharge) + parseFloat(xtracharge);
+    const results = result + calc;
 
     function subHandler(e) {
         e.preventDefault();
@@ -36,10 +44,14 @@ function Hillstrip() {
             payment: payment,
             cus_name: name,
             mobile: phone,
+            xtra_desc: description,
+            xtracharge: xtracharge,
+            tollcharge: tollcharge,
+            discount: discount,
             members: "4",
             trip_days: tripdays,
             driver_batta: batta,
-            total: result
+            total: results
           }
         console.log(JSON.stringify(data))
         async function addbill(){
@@ -59,6 +71,10 @@ function Hillstrip() {
             setPayment("")
             setPhone("")
             setTripdays("")
+            setDesc("");
+            setXtra(0);
+            setDiscount(0);
+            setToll(0);
     }
 
     return (
@@ -75,14 +91,17 @@ function Hillstrip() {
                             <div className="form col-md-6 col-lg-6 col-sm-12">
 
                                 <form onSubmit={subHandler}>
-                                <div className=" mt-3 form-group">
+                                <div className="row">
+                                        <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                         <label htmlFor="name">Customer Name : </label>
                                         <input required="required" name="name" onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control mt-1" placeholder="Customer Name" />
-                                    </div>
-                                    <div className=" mt-3 form-group">
+                                        </div>
+                                        <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
                                         <label htmlFor="number">Phone No : </label>
                                         <input required="required" onChange={(e) => setPhone(e.target.value)} name="number" value={phone} type="tel" pattern="^\d{10}$" className="form-control mt-1" placeholder="Phone No" />
+                                        </div>
                                     </div>
+
                                     <div className="row">
                                     <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
                                         <label htmlFor="from">Trip From : </label>
@@ -112,6 +131,69 @@ function Hillstrip() {
                                         <input  required="required" value="4" name="members" type="text" className="form-control mt-1" disabled/>
                                         </div>
                                     </div>
+                                    <div className="row">
+                                    <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
+                                    <label className="mt-2 mb-1" htmlFor={"customer_name"}>
+                                      Description :
+                                    </label>
+                                    <input
+                                      className={`form-control mb-2 border border-warning`}
+                                      type={"text"}
+                                      id={"description"}
+                                      name={"description"}
+                                      placeholder={"Description"}
+                                      value={description}
+                                      onChange={(e) => setDesc(e.target.value)}
+                                    />
+                                    </div>
+                                    <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
+                                    <label className="mt-2 mb-1" htmlFor={"mobile_no"}>
+                                    Extra Charge(Rs) :
+                                  </label>
+                                  <input
+                                    className={`form-control mb-2 border border-warning`}
+                                    type={"number"}
+                                    id={"xtracharge"}
+                                    name={"xtracharge"}
+                                    placeholder={"Extra Charge"}
+                                    value={xtracharge}
+                                    onChange={(e) => setXtra(e.target.value)}
+                                    required="required"
+                                  />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
+                                    <label className="mt-2 mb-1" htmlFor={"customer_name"}>
+                                      Toll / Parking Charge(Rs) :
+                                    </label>
+                                    <input
+                                      className={`form-control mb-2 border border-warning`}
+                                      type={"number"}
+                                      id={"tollcharge"}
+                                      name={"tollcharge"}
+                                      placeholder={"Toll / Parking Charge"}
+                                      value={tollcharge}
+                                      onChange={(e) => setToll(e.target.value)}
+                                      required="required"
+                                    />
+                                    </div>
+                                    <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
+                                    <label className="mt-2 mb-1" htmlFor={"mobile_no"}>
+                                    Discount (Rs):
+                                  </label>
+                                  <input
+                                    className={`form-control mb-2 border border-warning`}
+                                    type={"number"}
+                                    id={"discount"}
+                                    name={"discount"}
+                                    placeholder={"Discount Amount"}
+                                    value={discount}
+                                    onChange={(e) => setDiscount(e.target.value)}
+                                    required="required"
+                                  />
+                                    </div>
+                                </div>
                                     <div className="d-grid mt-4    ">
                                         <button value='submit' className="btn btn-warning" type="submit"> Submit </button>
                                     </div>
@@ -148,12 +230,43 @@ function Hillstrip() {
                                     <div className="col-5">
                                         : {batta} ₹
                                     </div>
+                                    { xtracharge >0 ? ( <>
+                                <div className="col-7">
+                                    <p>Extra Charge(Rs) </p>
+                                </div>
+                                <div className="col-5">
+                                    : {xtracharge}
+                                </div>
+                                </>):(<></>) }
+                                { tollcharge >0 ? ( <>
+                                <div className="col-7">
+                                    <p>Toll/Parking Charge(Rs) </p>
+                                </div>
+
+                                <div className="col-5">
+                                    : {tollcharge}
+                                </div>
+                                </>):(<></>) }
+                                { discount >0 ? ( <>
+                                  <div className="col-7">
+                                    <p><b>Subtotal</b> </p>
+                                </div>
+                                <div className="col-5">
+                                  <b>: {result + parseFloat(xtracharge)+ parseFloat(tollcharge)}</b>  
+                                </div>
+                                <div className="col-7">
+                                    <p>Discount(Rs) </p>
+                                </div>
+                                <div className="col-5">
+                                    : {discount}
+                                </div>
+                                </>):(<></>) }
                                     <div className="col-7">
                                         <h3 className="font-warning">Total </h3>
                                     </div>
                                     <div className="col-5">
 
-                                        <b> : {result} ₹ </b>
+                                        <b> : {results} ₹ </b>
                                         
                                     </div>
                                 

@@ -52,7 +52,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("pavisakthi1699@gmail.com")->send(new QuoteMail($details));
+        Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));
         
         $daytrip = new Localtrip();
         $daytrip->cus_name = $request->input('cus_name');
@@ -69,7 +69,7 @@ class PaymentController extends Controller
         $daytrip->discount = $request->input('discount');
 
         $daytrip->xtrakm = $request->input('xtrakm');
-        $daytrip->xtracharge = $request->input('xtracharge');
+        $daytrip->xtrakmcharge = $request->input('xtrakmcharge');
         $daytrip->total = $request->input('total');
         
         $daytrip->save();
@@ -89,7 +89,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("pavisakthi1699@gmail.com")->send(new QuoteMail($details));
+        Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));
         
         $daytrip = new Hillstrip();
         $daytrip->cus_name = $request->input('cus_name');
@@ -127,7 +127,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("pavisakthi1699@gmail.com")->send(new QuoteMail($details));
+        Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));
         
         $taxitrip = new Normaltaxi();
         $taxitrip->from = $request->input('from');

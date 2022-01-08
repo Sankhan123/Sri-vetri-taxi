@@ -26,7 +26,7 @@ class Localtrip extends Model
             'xtracharge',
             'tollcharge',
             'discount',
-           'xtracharge',
+           'xtrakmcharge',
              'total',
               
    ];
