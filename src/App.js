@@ -10,23 +10,24 @@ import Hillstrip from './screens/Hillstrip';
 import Dashboard from './screens/Dashboard';
 import Customer from './screens/Customer';
 import Car from './screens/Car';
+import PrivateRoute from './assets/header/PrivateRoute';
+import ProtectedRoute from './assets/header/ProtectedRoute';
 
 import CarTable from './components/CarTable';
 function App() {
   return (
     <Router>
-      
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={ <PrivateRoute><Home /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/one-day-trip" element={<Oneday />} />
-        <Route path="/local-trip" element={<LocalTrip />} />
-        <Route path="/hills-trip" element={<Hillstrip />} />
-        <Route path="/taxi-trip" element={<Taxi />} />
-        <Route path="/dashboard" element={<Dashboard />} >
-            <Route path="customer" element={<Customer />}/>
-            <Route path="car" element={<Car />}>
-                  <Route path=":id" element={<CarTable/>}/>
+        <Route path="/one-day-trip" element={<PrivateRoute><Oneday /></PrivateRoute>} />
+        <Route path="/local-trip" element={<PrivateRoute><LocalTrip /></PrivateRoute>} />
+        <Route path="/hills-trip" element={<PrivateRoute><Hillstrip /></PrivateRoute>} />
+        <Route path="/taxi-trip" element={<PrivateRoute><Taxi /></PrivateRoute>} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} >
+            <Route path="customer" element={<ProtectedRoute><Customer /></ProtectedRoute>}/>
+            <Route path="car" element={<ProtectedRoute><Car /></ProtectedRoute>}>
+                  <Route path=":id" element={<ProtectedRoute><CarTable /></ProtectedRoute>}/>
             </Route>
         </Route>
       </Routes>

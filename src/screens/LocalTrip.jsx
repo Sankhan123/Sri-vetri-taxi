@@ -5,8 +5,8 @@ import authHeader from '../assets/header/auth-header';
    
 function LocalTrip() {
     let car_id='';
-        if(localStorage.length){
-            const user_val = localStorage.getItem('user');
+        if(sessionStorage.length){
+            const user_val = sessionStorage.getItem('user');
             const user = JSON.parse(user_val);
             car_id = user.user.id; 
         }

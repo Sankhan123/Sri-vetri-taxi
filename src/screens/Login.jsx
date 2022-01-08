@@ -24,7 +24,7 @@ function Login() {
             
             if (response) {
                 
-                localStorage.setItem("user",JSON.stringify(response.data));
+                sessionStorage.setItem("user",JSON.stringify(response.data));
 
                 if(response.data.user.role==="admin"){
                     Navigate("/dashboard");
