@@ -117,9 +117,17 @@ function LocalTrip() {
     
                                         <div className="row">
                                             <div className=" mt-3 col-md-6 col-sm-12 col-lg-6 form-group">
-                                                <label htmlFor="from">Trip Hour : </label>
-                                                <input onChange={(e) => [setTriphr(e.target.value), setkm(e.target.value)]} value={triphr} name="triphr" type="number" required="required"  className="form-control mt-1" placeholder="Enter hour" min={1} max={2} />
-                                            </div>
+
+                                            <label htmlFor="to">Trip Hour : </label>
+                                        <select id="select" name={triphr} className="form-control form-control-select2"  onChange={(e) => [setTriphr(e.target.value), setkm(e.target.value)]} value={triphr} data-fouc required>
+                                            <option value="">Enter hour</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                           
+                                        </select>
+
+
+                                                  </div>
                                             <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
                                                 <label htmlFor="to">Kms Allowed : </label>
                                                 <input value={tripkms} name="tripkm" type="text" className="form-control mt-1"  placeholder="Kms allowed" disabled />

@@ -120,8 +120,20 @@ function Taxi() {
                                             <input required="required" onChange={(e) => setKm(e.target.value)} name="kms" value={km} type="number" min="1" className="form-control mt-1" placeholder="Distance Travelled" />
                                         </div>
                                         <div className=" mt-3  col-md-6 col-lg-6 col-sm-12 form-group">
-                                            <label htmlFor="hrs">Waiting Hours : </label>
-                                            <input required="required" value={hr} onChange={(e) => setHr(e.target.value)} name="hrs" type="number" min="0" className="form-control mt-1" placeholder="Waiting Hours" />
+
+                                        
+                                        <label htmlFor="to">Waiting Hours :  </label>
+                                        <select id="select" name={hr} className="form-control form-control-select2"  onChange={(e) => setHr(e.target.value)} value={hr} data-fouc required>
+                                            <option value="">Enter hour</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                           
+                                        </select>
+
+
                                         </div>
                                     </div>
                                     <div className="row">
@@ -209,12 +221,15 @@ function Taxi() {
                                     <div className="col-5">
                                         : {km} kms
                                     </div>
-                                    <div className="col-7">
+                                    
+                                    {hr ?
+                                        (<>  <div className="col-7">
                                         <p>Waiting Hours </p>
                                     </div>
                                     <div className="col-5">
                                         : {hr}
-                                    </div>
+                                    </div></>) : (<></>)
+                                    }
 
                                     {km >= 300 ?
                                         (<><div className="col-7">
