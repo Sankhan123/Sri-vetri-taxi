@@ -1,11 +1,22 @@
 import React from "react";
+import axios from "axios";
 import Logo from "./Logo";
 import { Link,useNavigate } from "react-router-dom";
+import authHeader from "../assets/header/auth-header";
 function Profile() {
   const Navigate = useNavigate();
-  function handleLogout() {
-    sessionStorage.removeItem('user');
-    Navigate('/login');
+  async function handleLogout() {
+    try{
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/log-out`,{ headers: authHeader() });
+    if(res){
+      console.log(res);
+      sessionStorage.removeItem('user');
+      Navigate("/login");
+      
+    }
+    }catch(e){
+      console.log(e);
+    }
   }
   return (
     <div className="col-sm-9 my-auto col-md-7 col-lg-5 mx-auto">
