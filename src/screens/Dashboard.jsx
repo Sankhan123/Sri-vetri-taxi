@@ -10,6 +10,7 @@ import axios from "axios";
 import Admin from "./Admin";
 import PowerOff from "../assets/power-off-solid.svg";
 import authHeader from "../assets/header/auth-header";
+import REACT_APP_API_URL from "../assets/header/env";
 
 function Dashboard() {
   const location = useLocation();
@@ -21,7 +22,7 @@ function Dashboard() {
   async function logout(){
 
     try{
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/log-out`,{ headers: authHeader() });
+      const res = await axios.get(`${REACT_APP_API_URL}/log-out`,{ headers: authHeader() });
     if(res){
       console.log(res);
       sessionStorage.removeItem('user');

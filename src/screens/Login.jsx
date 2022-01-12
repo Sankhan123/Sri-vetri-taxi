@@ -2,6 +2,7 @@ import Logo from "../components/Logo"
 import React, { useState } from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import REACT_APP_API_URL from "../assets/header/env";
 
 function Login() {
     let Navigate = useNavigate();
@@ -20,7 +21,7 @@ function Login() {
 
             try{
 
-                const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`,data);
+                const response = await axios.post(`${REACT_APP_API_URL}/login`,data);
             
             if (response) {
                 

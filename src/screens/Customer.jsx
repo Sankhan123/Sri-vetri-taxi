@@ -5,12 +5,13 @@ import { useTable ,useSortBy, usePagination } from "react-table";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import authHeader from "../assets/header/auth-header";
+import REACT_APP_API_URL from "../assets/header/env";
 
 const Customer = () => {
  
   const [Data, setData] = useState([]);
   const getData = async () => {
-    const res = await axios.get(`${process.env.REACT_APP_API_URL}/cus-list`,{ headers: authHeader() });
+    const res = await axios.get(`${REACT_APP_API_URL}/cus-list`,{ headers: authHeader() });
     if (res) {
       const data = res.data.all;
       setData(data);

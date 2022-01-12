@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import authHeader from "../assets/header/auth-header";
+import REACT_APP_API_URL from "../assets/header/env";
 
 function Oneday() {
   let car_id='';
@@ -52,7 +53,7 @@ function Oneday() {
     }
     async function addbill(){
       try{
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/add-day-trip`,data, { headers: authHeader() });
+        const response = await axios.post(`${REACT_APP_API_URL}/add-day-trip`,data, { headers: authHeader() });
       if(response){
         alert(response.data.message);
       }

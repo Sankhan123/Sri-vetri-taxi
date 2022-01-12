@@ -6,6 +6,7 @@ import { useTable, useSortBy, usePagination } from "react-table";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import authHeader from "../assets/header/auth-header";
+import REACT_APP_API_URL from "../assets/header/env";
 
 const CarTable = () => {
   let Location = useLocation();
@@ -13,7 +14,7 @@ const CarTable = () => {
   const [Data, setData] = useState([]);
   const getData = async () => {
     const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/cars-data/${data.id}`, { headers: authHeader() }
+      `${REACT_APP_API_URL}/cars-data/${data.id}`, { headers: authHeader() }
     );
     if (res) {
       const data = res.data.all;

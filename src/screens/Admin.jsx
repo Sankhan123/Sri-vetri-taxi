@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import authHeader from "../assets/header/auth-header";
+import REACT_APP_API_URL from "../assets/header/env";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 
@@ -12,7 +13,7 @@ const Admin = () => {
         async function getReport()
         {
             try{
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/get-report`,{ headers: authHeader() });
+                const res = await axios.get(`${REACT_APP_API_URL}/get-report`,{ headers: authHeader() });
                 if (res) {
                     const r_data = res.data;
                     setReport(r_data);

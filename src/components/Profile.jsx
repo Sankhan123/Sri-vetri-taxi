@@ -3,11 +3,12 @@ import axios from "axios";
 import Logo from "./Logo";
 import { Link,useNavigate } from "react-router-dom";
 import authHeader from "../assets/header/auth-header";
+import REACT_APP_API_URL from "../assets/header/env";
 function Profile() {
   const Navigate = useNavigate();
   async function handleLogout() {
     try{
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/log-out`,{ headers: authHeader() });
+      const res = await axios.get(`${REACT_APP_API_URL}/log-out`,{ headers: authHeader() });
     if(res){
       console.log(res);
       sessionStorage.removeItem('user');

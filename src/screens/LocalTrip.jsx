@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import authHeader from '../assets/header/auth-header';
+import REACT_APP_API_URL from "../assets/header/env";
 
    
 function LocalTrip() {
@@ -66,7 +67,7 @@ function LocalTrip() {
         
         async function addbill() {
             try{
-                const response = await axios.post(`${process.env.REACT_APP_API_URL}/local-trip`, data, { headers: authHeader() });
+                const response = await axios.post(`${REACT_APP_API_URL}/local-trip`, data, { headers: authHeader() });
             if (response) {
                 alert(response.data.message);
             }

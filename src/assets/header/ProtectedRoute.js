@@ -1,8 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useEffect } from "react";
 
 function ProtectedRoute({ children }) {
-  let Navigate = useNavigate();
   let auth, role = null;
   if (sessionStorage.getItem("user") !== null) {
     auth = JSON.parse(sessionStorage.getItem("user"));
@@ -11,11 +10,10 @@ function ProtectedRoute({ children }) {
   useEffect(() => {
       if(!auth || !(role === 'admin')) {
         alert("You are not admin!!!"); 
-        Navigate(-1);
       }
   }, []);
   
-  return (auth && role === 'admin') && children ;
+  return (auth && role === 'admin') ? children : <Navigate to ="/login" /> ;
 }
 
 export default ProtectedRoute;

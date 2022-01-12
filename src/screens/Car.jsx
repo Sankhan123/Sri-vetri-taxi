@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import CarCard from "../components/carCard";
-
+import REACT_APP_API_URL from "../assets/header/env";
 import { useLocation, Outlet} from "react-router";
 import authHeader from "../assets/header/auth-header";
 
@@ -16,7 +16,7 @@ const Car = () => {
 
         async function getCars()
         {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/cars-list`,{ headers: authHeader() });
+        const res = await axios.get(`${REACT_APP_API_URL}/cars-list`,{ headers: authHeader() });
         if (res) {
             setCars(res.data.data);
         }
