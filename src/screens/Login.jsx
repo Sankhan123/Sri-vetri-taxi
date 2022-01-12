@@ -20,7 +20,7 @@ function Login() {
 
             try{
 
-                const response = await axios.post(`http://127.0.0.1:8000/api/auth/login`,data);
+                const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`,data);
             
             if (response) {
                 
@@ -55,6 +55,7 @@ function Login() {
         <div className="auth-inner">
         <form onSubmit={subHandler}>
         <h4>LOGIN</h4>
+        
             <Logo/>
         <div className=" mt-3 form-group">
             

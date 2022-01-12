@@ -21,7 +21,7 @@ function Dashboard() {
   async function logout(){
 
     try{
-      const res = await axios.get('http://127.0.0.1:8000/api/auth/log-out',{ headers: authHeader() });
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/log-out`,{ headers: authHeader() });
     if(res){
       console.log(res);
       sessionStorage.removeItem('user');

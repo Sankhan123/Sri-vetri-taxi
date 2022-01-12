@@ -16,7 +16,7 @@ const Car = () => {
 
         async function getCars()
         {
-        const res = await axios.get("http://127.0.0.1:8000/api/auth/cars-list",{ headers: authHeader() });
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/cars-list`,{ headers: authHeader() });
         if (res) {
             setCars(res.data.data);
         }

@@ -12,7 +12,7 @@ const Admin = () => {
         async function getReport()
         {
             try{
-                const res = await axios.get("http://127.0.0.1:8000/api/auth/get-report",{ headers: authHeader() });
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/get-report`,{ headers: authHeader() });
                 if (res) {
                     const r_data = res.data;
                     setReport(r_data);

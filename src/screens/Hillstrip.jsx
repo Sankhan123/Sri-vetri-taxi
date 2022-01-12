@@ -56,7 +56,7 @@ function Hillstrip() {
         console.log(JSON.stringify(data))
         async function addbill(){
             try{
-                const response = await axios.post("http://127.0.0.1:8000/api/auth/hills-trip", data,{ headers: authHeader() });
+                const response = await axios.post(`${process.env.REACT_APP_API_URL}/hills-trip`, data,{ headers: authHeader() });
             if(response){
               alert(response.data.message);
             }

@@ -1,7 +1,8 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 function PrivateRoute({ children }) {
+  let Navigate = useNavigate();
   let auth, role = null;
   if (sessionStorage.getItem("user") !== null) {
     auth = JSON.parse(sessionStorage.getItem("user"));
@@ -9,10 +10,11 @@ function PrivateRoute({ children }) {
   }
   useEffect(() => {
     if (!auth || !(role === "user")) {
-      alert("You are not authorized!!! Please login");
+      alert("You are not user!!! Please login");
+      Navigate(-1);
     }
   }, []);
-  return auth && role === "user" ? children : <Navigate to="/login" />;
+  return auth && role === "user" && children ;
 }
 
 export default PrivateRoute;

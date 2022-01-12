@@ -10,7 +10,7 @@ const Customer = () => {
  
   const [Data, setData] = useState([]);
   const getData = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/api/auth/cus-list`,{ headers: authHeader() });
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/cus-list`,{ headers: authHeader() });
     if (res) {
       const data = res.data.all;
       setData(data);

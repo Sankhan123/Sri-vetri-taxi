@@ -30,6 +30,7 @@ function App() {
                   <Route path=":id" element={<ProtectedRoute><CarTable /></ProtectedRoute>}/>
             </Route>
         </Route>
+        <Route path="*" element={<p>404</p>}/>
       </Routes>
      
     </Router>
