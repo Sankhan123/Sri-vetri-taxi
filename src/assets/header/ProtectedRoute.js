@@ -13,7 +13,7 @@ function ProtectedRoute({ children }) {
       }
   }, []);
   
-  return (auth && role === 'admin') ? children : <Navigate to ="/login" /> ;
+  return (auth && role === 'admin') ? children : <Navigate to ="/" /> ;
 }
 
 export default ProtectedRoute;

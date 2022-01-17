@@ -12,7 +12,7 @@ function PrivateRoute({ children }) {
       alert("You are not user!!! Please login");
     }
   }, []);
-  return auth && role === "user" ? children : <Navigate to ="/login" /> ;
+  return auth && role === "user" ? children : <Navigate to ="/" /> ;
 }
 
 export default PrivateRoute;

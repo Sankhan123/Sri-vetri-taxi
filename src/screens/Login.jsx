@@ -30,7 +30,7 @@ function Login() {
                 if(response.data.user.role==="admin"){
                     Navigate("/dashboard");
                 }else{
-                    Navigate("/");
+                    Navigate("/home");
                 }
                 
               }

@@ -12,7 +12,7 @@ function Profile() {
     if(res){
       console.log(res);
       sessionStorage.removeItem('user');
-      Navigate("/login");
+      Navigate("/");
       
     }
     }catch(e){

@@ -18,8 +18,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={ <PrivateRoute><Home /></PrivateRoute>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={ <PrivateRoute><Home /></PrivateRoute>} />
+        <Route path="/" element={<Login />} />
         <Route path="/one-day-trip" element={<PrivateRoute><Oneday /></PrivateRoute>} />
         <Route path="/local-trip" element={<PrivateRoute><LocalTrip /></PrivateRoute>} />
         <Route path="/hills-trip" element={<PrivateRoute><Hillstrip /></PrivateRoute>} />
