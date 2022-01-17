@@ -9,10 +9,32 @@ use App\Models\Normaltaxi;
 use App\Models\Oneday;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Sendsms;
 
 class PaymentController extends Controller
 {
+    public $sendSms;
+
     public function add_day_trip(Request $request){
+
+        $url = 'http://pay4sms.in';
+        $token = '3ced1c7a756b049bfa9e228de5c13695';
+        $credit = '2';
+        $sender = 'VETRlT';
+        $message = 'Dear '.$request->input('cus_name').' Your Amount for this One Day Trip is Rs.'.$request->input('total').' initial Pay : (1800, Total km :'.$request->input('distance').'), Extra Amount :('.$request->input('xtracharge').'), Tolls/Parking :('.$request->input('tollcharge').'), Discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
+        $number = $request->input('mobile');  
+        $this->sendSms = new Sendsms($url,$token);
+        try {
+            $message_id = $this->sendSms->sendmessage($credit,$sender,$message,$number);
+            $dlr_status = $this->sendSms->checkdlr($message_id);
+            $available_credit = $this->sendSms->availablecredit($credit);
+        }
+            catch (\Exception $e) {
+            echo $e->getMessage();
+        } 
+
+
+
         $details = [
             'name' => $request->input('cus_name'),
             'mobile' => $request->input('mobile'),
@@ -20,7 +42,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("19bca130@hicas.ac.in")->send(new QuoteMail($details));
+        Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));
         
         $daytrip = new Oneday();
         $daytrip->cus_name = $request->input('cus_name');
@@ -45,6 +67,23 @@ class PaymentController extends Controller
     }
 
     public function add_local_trip(Request $request){
+
+        $url = 'http://pay4sms.in';
+        $token = '3ced1c7a756b049bfa9e228de5c13695';
+        $credit = '2';
+        $sender = 'VETRlT';
+        $message = 'Dear '.$request->input('cus_name').' Your Amount for this Local Trip is Rs.'.$request->input('total').' Total hrs :('.$request->input('triphr').','.$request->input('payment').'), Extra kms :('.$request->input('tripkms').'), Extra Amount :('.$request->input('xtrakmcharge').'), Tolls/Parking :('.$request->input('tollcharge').'), discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
+        $number = $request->input('mobile');  
+        $this->sendSms = new Sendsms($url,$token);
+        try {
+            $message_id = $this->sendSms->sendmessage($credit,$sender,$message,$number);
+            $dlr_status = $this->sendSms->checkdlr($message_id);
+            $available_credit = $this->sendSms->availablecredit($credit);
+        }
+            catch (\Exception $e) {
+            echo $e->getMessage();
+        } 
+
         $details = [
             'name' => $request->input('cus_name'),
             'mobile' => $request->input('mobile'),
@@ -81,6 +120,22 @@ class PaymentController extends Controller
     }
 
     public function add_hills_trip(Request $request){
+
+        $url = 'http://pay4sms.in';
+        $token = '3ced1c7a756b049bfa9e228de5c13695';
+        $credit = '2';
+        $sender = 'VETRlT';
+        $message = 'Dear '.$request->input('cus_name').' Your Amount for this Hills trip is Rs.'.$request->input('total').' Trip pay :('.$request->input('payment').'), Driver beta :('.$request->input('driver_batta').'), Days :('.$request->input('trip_days').',Extra Amount :('.$request->input('xtrakmcharge').'), Tolls/Parking :('.$request->input('tollcharge').'), discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
+        $number = $request->input('mobile');  
+        $this->sendSms = new Sendsms($url,$token);
+        try {
+            $message_id = $this->sendSms->sendmessage($credit,$sender,$message,$number);
+            $dlr_status = $this->sendSms->checkdlr($message_id);
+            $available_credit = $this->sendSms->availablecredit($credit);
+        }
+            catch (\Exception $e) {
+            echo $e->getMessage();
+        } 
 
         $details = [
             'name' => $request->input('cus_name'),
@@ -120,6 +175,23 @@ class PaymentController extends Controller
     }
 
     public function add_taxi_trip(Request $request){
+
+        $url = 'http://pay4sms.in';
+        $token = '3ced1c7a756b049bfa9e228de5c13695';
+        $credit = '2';
+        $sender = 'VETRlT';
+        $message = 'Dear '.$request->input('cus_name').' Your Amount for this Normal Taxi is Rs.'.$request->input('total').' Total km :('.$request->input('distance').'), Waiting Charge :('.$request->input('w_hour').','.$request->input('w_charge').'), Driver beta :('.$request->input('driver_batta').'), Extra Amount :('.$request->input('xtrakmcharge').'), Tolls/Parking :('.$request->input('tollcharge').'), discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
+        $number = $request->input('mobile');  
+        $this->sendSms = new Sendsms($url,$token);
+        try {
+            $message_id = $this->sendSms->sendmessage($credit,$sender,$message,$number);
+            $dlr_status = $this->sendSms->checkdlr($message_id);
+            $available_credit = $this->sendSms->availablecredit($credit);
+        }
+            catch (\Exception $e) {
+            echo $e->getMessage();
+        } 
+
         $details = [
             'name' => $request->input('cus_name'),
             'mobile' => $request->input('mobile'),
