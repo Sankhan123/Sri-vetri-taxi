@@ -21,7 +21,7 @@ class PaymentController extends Controller
         $token = '3ced1c7a756b049bfa9e228de5c13695';
         $credit = '2';
         $sender = 'VETRlT';
-        $message = 'Dear '.$request->input('cus_name').' Your Amount for this One Day Trip is Rs.'.$request->input('total').' initial Pay : (1800, Total km :'.$request->input('distance').'), Extra Amount :('.$request->input('xtracharge').'), Tolls/Parking :('.$request->input('tollcharge').'), Discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
+        $message = 'Dear '.$request->input('cus_name').'Your Safe Journey With Car:{'.$request->input('car_no').'Your Amount for this Day Rent is Rs.'.$request->input('total').' initial Pay : (1800), Total:('.$request->input('distance').'Kms=Rs.'.$request->input('distance_charge').'), Extra Amount:('.$request->input('xtra_desc').','.$request->input('xtracharge').'), Tolls/Parking :('.$request->input('tollcharge').'), Discount :('.$request->input('discount').') +918015551777 THANK YOU Have a nice day! VETRI CALL TAXI';
         $number = $request->input('mobile');  
         $this->sendSms = new Sendsms($url,$token);
         try {
@@ -42,7 +42,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));
+        /*Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));*/
         
         $daytrip = new Oneday();
         $daytrip->cus_name = $request->input('cus_name');
@@ -72,7 +72,8 @@ class PaymentController extends Controller
         $token = '3ced1c7a756b049bfa9e228de5c13695';
         $credit = '2';
         $sender = 'VETRlT';
-        $message = 'Dear '.$request->input('cus_name').' Your Amount for this Local Trip is Rs.'.$request->input('total').' Total hrs :('.$request->input('triphr').','.$request->input('payment').'), Extra kms :('.$request->input('tripkms').'), Extra Amount :('.$request->input('xtrakmcharge').'), Tolls/Parking :('.$request->input('tollcharge').'), discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
+        $message = 'Dear '.$request->input('cus_name').'Your Safe Journey With Car:{'.$request->input('car_no').'}Your Amount for this Local Trip is Rs.'.$request->input('total').' Total hrs :('.$request->input('triphr').','.$request->input('payment').'), Extra kms :('.$request->input('tripkms').'), Extra Amount :('.$request->input('xtrakmcharge').'), Tolls/Parking :('.$request->input('tollcharge').'), discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
+      
         $number = $request->input('mobile');  
         $this->sendSms = new Sendsms($url,$token);
         try {
@@ -91,7 +92,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));
+       /* Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));*/
         
         $daytrip = new Localtrip();
         $daytrip->cus_name = $request->input('cus_name');
@@ -144,7 +145,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));
+       /* Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));*/
         
         $daytrip = new Hillstrip();
         $daytrip->cus_name = $request->input('cus_name');
@@ -199,7 +200,7 @@ class PaymentController extends Controller
             'amount' => $request->input('total')
         ];
 
-        Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));
+       /* Mail::to("kanism33@gmail.com")->send(new QuoteMail($details));*/
         
         $taxitrip = new Normaltaxi();
         $taxitrip->from = $request->input('from');

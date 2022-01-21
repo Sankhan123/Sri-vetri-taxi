@@ -5,10 +5,12 @@ import REACT_APP_API_URL from "../assets/header/env";
 
 function Hillstrip() {
     let car_id='';
+    let car_no='';
         if(sessionStorage.length){
             const user_val = sessionStorage.getItem('user');
             const user = JSON.parse(user_val);
             car_id = user.user.id; 
+            car_no = user.user.name; 
         }
     const [tripto, setTripto] = useState("");
     const [tripdays, setTripdays] = useState("");
@@ -40,6 +42,7 @@ function Hillstrip() {
         e.preventDefault();
         let data = {
             car_id: car_id,
+            car_no : car_no,
             trip_from: "Tiruchengode",
             trip_to: tripto,
             payment: payment,

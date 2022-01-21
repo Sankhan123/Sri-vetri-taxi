@@ -5,10 +5,12 @@ import REACT_APP_API_URL from "../assets/header/env";
 
 function Taxi() {
     let car_id='';
+    let car_no='';
         if(sessionStorage.length){
             const user_val = sessionStorage.getItem('user');
             const user = JSON.parse(user_val);
             car_id = user.user.id; 
+            car_no = user.user.name; 
         }      
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
@@ -40,12 +42,13 @@ function Taxi() {
         e.preventDefault();
         let data = {
             car_id: car_id,
+            car_no : car_no,
             from: start,
             to: end,
             cus_name: name,
             mobile: phone,
             distance: km,
-
+            distance_charge : result,
             xtra_desc: description,
             xtracharge: xtracharge,
             tollcharge: tollcharge,

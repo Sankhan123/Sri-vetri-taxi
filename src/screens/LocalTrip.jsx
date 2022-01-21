@@ -6,10 +6,12 @@ import REACT_APP_API_URL from "../assets/header/env";
    
 function LocalTrip() {
     let car_id='';
+    let car_no='';
         if(sessionStorage.length){
             const user_val = sessionStorage.getItem('user');
             const user = JSON.parse(user_val);
             car_id = user.user.id; 
+            car_no = user.user.name; 
         }
     const [triphr, setTriphr] = useState("");
     const [tripkms, setTripkms] = useState("");
@@ -48,6 +50,7 @@ function LocalTrip() {
         e.preventDefault();
         let data = {
             car_id: car_id,
+            car_no : car_no,
             triphr: triphr,
             tripkms: tripkms,
             payment: payment,

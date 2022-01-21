@@ -5,10 +5,12 @@ import REACT_APP_API_URL from "../assets/header/env";
 
 function Oneday() {
   let car_id='';
+  let car_no='';
   if(sessionStorage.length){
       const user_val = sessionStorage.getItem('user');
       const user = JSON.parse(user_val);
-      car_id = user.user.id; 
+      car_id = user.user.id;
+      car_no = user.user.name; 
   }
   const [kms, setKms] = useState(0);
 
@@ -22,6 +24,8 @@ function Oneday() {
   const initPayment = 1800;
   const pricePerKm = 7;
   const totalPrice = initPayment + pricePerKm * kms;
+  let distance_charge = 0;
+  distance_charge = pricePerKm * kms;
 
   let calc = 0;
   discount >0 ? calc = (parseFloat(tollcharge) + parseFloat(xtracharge))-parseFloat(discount) : calc = parseFloat(tollcharge) + parseFloat(xtracharge);
@@ -40,10 +44,11 @@ function Oneday() {
     e.preventDefault();
     let data = {
       car_id : car_id,
+      car_no : car_no,
       cus_name: custName,
       mobile: custNo,
       distance: kms,
-
+      distance_charge: distance_charge,
       xtra_desc: description,
       xtracharge: xtracharge,
       tollcharge: tollcharge,
