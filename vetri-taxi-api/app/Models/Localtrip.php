@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Localtrip extends Model
 {
     use HasFactory;
-    protected $table = 'Localtrip_details';
+    protected $table = 'localtrip_details';
     protected $casts = [
       'created_at' => 'datetime:d-m-Y',
   ];
