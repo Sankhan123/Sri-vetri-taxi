@@ -72,7 +72,7 @@ class PaymentController extends Controller
         $token = '3ced1c7a756b049bfa9e228de5c13695';
         $credit = '2';
         $sender = 'VETRlT';
-        $message = 'Dear '.$request->input('cus_name').'Your Safe Journey With Car:{'.$request->input('car_no').' Your Amount for this Hours Trip is Rs.'.$request->input('total').'Total:('.$request->input('triphr').';Hrs=Rs.'.$request->input('payment').'), Extra:('.$request->input('xtrakm').'Hrs=Rs.'.$request->input('xtrakmcharge').'), Extra Amount:('.$request->input('xtra_desc').','.$request->input('xtracharge').'), Tolls/Parking :('.$request->input('tollcharge').'), discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
+        $message = 'Dear '.$request->input('cus_name').'Your Safe Journey With Car:{'.$request->input('car_no').' Your Amount for this Hours Trip is Rs.'.$request->input('total').'Total:('.$request->input('triphr').';Hrs=Rs.'.$request->input('payment').'), Extra:('.$request->input('xtrakm').'Kms=Rs.'.$request->input('xtrakmcharge').'), Extra Amount:('.$request->input('xtra_desc').','.$request->input('xtracharge').'), Tolls/Parking :('.$request->input('tollcharge').'), discount :('.$request->input('discount').') THANK YOU Have a nice day! VETRI CALL TAXI';
         $number = $request->input('mobile');  
         $this->sendSms = new Sendsms($url,$token);
         try {
