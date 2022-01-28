@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2022 at 08:14 AM
+-- Generation Time: Jan 28, 2022 at 10:46 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -89,6 +89,35 @@ CREATE TABLE `localtrip_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `car_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `driver` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `car_no`, `password`, `driver`, `created_at`, `updated_at`) VALUES
+(1, 'TN34AB7864', 'svt7864', NULL, NULL, NULL),
+(2, 'TN34AC6366', 'svt6366', NULL, NULL, NULL),
+(3, 'TN34AC8596', 'svt8596', NULL, NULL, NULL),
+(4, 'TN50AW1600', 'svt1600', NULL, NULL, NULL),
+(5, 'TN34AE0184', 'svt0184', NULL, NULL, NULL),
+(6, 'TN43K0649', 'svt0649', NULL, NULL, NULL),
+(7, 'TN36AF5738', 'svt5738', NULL, NULL, NULL),
+(8, 'TN88D9990', 'svt9990', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -253,6 +282,12 @@ ALTER TABLE `localtrip_details`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -312,6 +347,12 @@ ALTER TABLE `hillstrip_details`
 --
 ALTER TABLE `localtrip_details`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `migrations`
